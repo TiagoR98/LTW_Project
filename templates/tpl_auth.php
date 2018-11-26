@@ -3,9 +3,8 @@
 
   <section id="login">
     <h1>Login</h1>
-    <form>
+    <form action="../actions/action_login.php" method="post">
       <input type="text" name="username" placeholder="Username">
-      <input type="email" name="email" placeholder="E-mail">
       <input type="password" name="password" placeholder="Password">
       <input type="submit" value="Login">
     </form>
@@ -20,7 +19,7 @@
 
   <section id="register">
     <h1>Register</h1>
-    <form>
+    <form action="../actions/action_register.php" method="post">
       <input type="text" name="username" placeholder="Username">
       <input type="email" name="email" placeholder="E-mail">
       <input type="password" name="password" placeholder="Password">

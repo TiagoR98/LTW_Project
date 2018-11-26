@@ -89,9 +89,8 @@ CREATE TABLE 'user'
 	'username' TEXT NOT NULL,
 	'email' TEXT NOT NULL,
 	'password' TEXT NOT NULL,
-	'birth' TEXT NOT NULL,
-	'profilePic' TEXT NOT NULL,
-	'channel' INTEGER NOT NULL,
+	'birth' TEXT ,
+	'profilePic' TEXT,
 	CONSTRAINT 'username' UNIQUE ('username')
 )
 ;

@@ -1,4 +1,4 @@
-<?php function draw_header(){
+<?php function draw_header($username){
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -10,6 +10,9 @@
   <body>
     <header>
       <h1><a href="register.php">channelOmania</a></h1>
+      <?php if($username!=NULL){ ?>
+        <h2>Bem-Vindo <?php echo($username) ?> </h2>
+      <?php } ?>
     </header>
 <?php } ?>
 
