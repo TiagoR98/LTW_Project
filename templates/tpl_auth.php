@@ -9,8 +9,8 @@
       <input type="password" name="password" placeholder="Password">
       <input type="submit" value="Login">
     </form>
-    <p><a href="password.html">Forgot your password?</a></p>
-    <p>Don't have an account?<a href="register.html">Register Now</a></p>
+    <p><a href="password.php">Forgot your password?</a></p>
+    <p>Don't have an account?<a href="register.php">Register Now</a></p>
   </section>
 
 <?php } ?>
@@ -27,7 +27,7 @@
       <input type="password" name="password_confirm" placeholder="Confirm Password">
       <input type="submit" value="Register">
     </form>
-    <p>Already have an account?<a href="login.html">Login</a></p>
+    <p>Already have an account?<a href="login.php">Login</a></p>
   </section>
 
 <?php }  ?>

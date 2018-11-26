@@ -1,11 +1,8 @@
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-echo("Hello World \r\n");
-
-
+header('Location: pages/login.php');
+/*
 $dbh = new PDO('sqlite:database.db');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -25,7 +22,7 @@ try{
     $usernameNew = $username . $i;
     $stmt = $dbh->prepare('INSERT INTO user (username,email,password,birth,profilePic,channel) VALUES (?, ?, ?, ?, ?, ?)');
     $stmt->execute(array($usernameNew, $email, $password, $birth, $profilePic, $channel));
-  }*/
+  }
 } catch (Exception $e) {
     echo($e);
 }
@@ -36,7 +33,7 @@ $stmt->execute();
 while ($row = $stmt->fetch()) {
   print_r ($row);
 }
-echo("</pre>");
+echo("</pre>");*/
 
 
 
