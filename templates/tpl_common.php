@@ -12,6 +12,7 @@
       <h1><a href="register.php">channelOmania</a></h1>
       <?php if($username!=NULL){ ?>
         <h2>Bem-Vindo <?php echo($username) ?> </h2>
+        <h2><a href="../actions/action_logout.php">Logout</a></h2>
       <?php } ?>
     </header>
 <?php } ?>

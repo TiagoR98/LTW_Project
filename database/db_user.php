@@ -8,9 +8,9 @@ function checkUserPassword($username, $password) {
   return $stmt->fetch()?true:false;
 }
 
-function insertUser($username, $password,$email) {
+function insertUser($username, $password,$email,$birth) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('INSERT INTO user (username,password,email) VALUES(?, ?, ?)');
-  $stmt->execute(array($username, sha1($password), $email));
+  $stmt = $db->prepare('INSERT INTO user (username,password,email) VALUES(?, ?, ?, ?)');
+  $stmt->execute(array($username, sha1($password), $email,$birth));
 }
  ?>

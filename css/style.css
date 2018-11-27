@@ -1,3 +1,8 @@
+body {
+  font-family: Helvetica;
+  background-color: #FFEAE7;
+}
+
 header{
   background-color: #800000;
   padding: 0.2em;
@@ -17,7 +22,11 @@ header a{
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+}
+
+#login #error_text {
+  color: red;
 }
 
 #login h1, #register h1, #password h1{
@@ -28,4 +37,32 @@ header a{
 #login input, #register input, #password input {
   display: block;
   margin: 1em 0;
+}
+
+#profile #profile_info {
+  float: left;
+}
+
+#profile #profile_info h2 {
+  display: inline-flex;
+}
+
+#profile #profile_info h3 {
+  display: inline;
+}
+
+#profile #profile_info form {
+  display: inline-block;
+}
+
+#profile #profile_pic{
+  height: 300px;
+  width: 300px;
+  float: left;
+  padding: 0px 30px;
+}
+
+footer{
+  clear: left;
+  padding-top: 50px;
 }
