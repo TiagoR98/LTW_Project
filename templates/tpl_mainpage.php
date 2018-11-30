@@ -3,7 +3,7 @@
   <?php for ($i = 0; $i < count($storyInfo); $i++) { ?>
   <section id="story_preview">
     <h3><?php echo($storyInfo[$i]['title']); ?></h3>
-    <p><?php echo($storyInfo[$i]['content']); ?></p>
+    <p><?php echo(substr($storyInfo[$i]['content'],0,20)); ?>...</p>
     <ul>
       <li><?php echo($storyInfo[$i]['username']); ?></li>
       <li><?php echo($storyInfo[$i]['date']); ?></li>
