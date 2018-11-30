@@ -20,7 +20,7 @@
 
   <section id="register">
     <h1>Register</h1>
-    <form action="../actions/action_register.php" method="post">
+    <form action="../actions/action_register.php" method="post" id="registerForm">
       <input type="text" name="username" placeholder="Username" required>
       <input type="email" name="email" placeholder="E-mail" required>
       <input type="password" id="password" name="password" placeholder="Password" required>

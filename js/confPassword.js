@@ -5,7 +5,7 @@ document.getElementById("password").addEventListener('change', confPassword);
 function confPassword() {
     var confPasswordField = document.getElementById("password_confirm");
     var passwordField = document.getElementById("password");
-    var registerSection = document.getElementById("register");
+    var registerSection = document.getElementById("registerForm");
     var errorMessage =  document.createElement('div');
     errorMessage.setAttribute("id","confPasswordError");
     errorMessage.appendChild(document.createTextNode("Passwords don't match!"));
@@ -14,7 +14,7 @@ function confPassword() {
       registerSection.removeChild(document.getElementById('confPasswordError'));
       document.getElementById("submitRegister").setAttribute("type","submit");
     }
-
+submitRegister
     if(confPasswordField.value != passwordField.value){
       registerSection.appendChild(errorMessage);
       document.getElementById("submitRegister").setAttribute("type","button");

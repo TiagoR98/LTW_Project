@@ -96,3 +96,7 @@ footer{
   list-style-type: none;
   padding: 1em;
 }
+
+#register #confPasswordError{
+  color:red;
+}
