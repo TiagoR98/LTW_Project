@@ -1,4 +1,4 @@
-<?php function draw_login($error){
+<?php function draw_login(){
   ?>
 
   <section id="login">
@@ -8,9 +8,6 @@
       <input type="password" name="password" placeholder="Password">
       <input type="submit" value="Login">
     </form>
-    <?php if($error) {?>
-      <p id="error_text">Username ou Password errados</p>
-    <?php } ?>
     <p><a href="password.php">Forgot your password?</a></p>
     <p>Don't have an account?<a href="register.php">Register Now</a></p>
   </section>

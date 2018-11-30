@@ -4,7 +4,7 @@
   include_once('../templates/tpl_auth.php');
 
     if (isset($_SESSION['username']))
-      draw_header($_SESSION['username']);
+      draw_header();
     else {
       draw_header(NULL);
     }
