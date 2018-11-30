@@ -5,7 +5,8 @@ include_once('../database/db_list.php');
 
 $userInfo = listProfile($_SESSION['username']);
 
-if(isset($_FILES['profilePic'])){
+
+if(($_FILES['profilePic']['error']==0)){
 
   $extension =  findexts($_FILES["profilePic"]["name"]);
 
@@ -34,13 +35,20 @@ if(isset($_FILES['profilePic'])){
     die();
   }
 
-
+}else if(isset($_POST['email']) && !empty($_POST['email'])){
+  $userInfo['email'] = $_POST['email'];
+}else if(isset($_POST['birth']) && !empty($_POST['birth'])){
+  $userInfo['birth'] = $_POST['birth'];
+}else{
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'No data to update!');
+  header('Location:../pages/profile.php');
+  die();
 }
 
 try{
   updateProfile($userInfo);
 }catch(Exception $e){
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error updating profile info');
     header('Location:../pages/profile.php');
     die();
 }
@@ -54,7 +62,8 @@ $exts = $exts[$n];
 return ".".$exts;
 }
 
-$_SESSION['messages'][] = array('type' => 'success', 'content' => 'Image Uploaded Successfully');
+
+$_SESSION['messages'][] = array('type' => 'success', 'content' => 'Profile info updated successfully');
 header('Location:../pages/profile.php');
 
  ?>

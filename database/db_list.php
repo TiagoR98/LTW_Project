@@ -10,9 +10,9 @@ function listProfile($username) {
 
 function updateProfile($userInfo) {
   $db = Database::instance()->db();
-  $sql = "UPDATE user SET profilePic= ? WHERE username= ?";
+  $sql = "UPDATE user SET profilePic= ?,email=?,birth = ? WHERE username= ?";
   $stmt = $db->prepare($sql);
-  $stmt->execute([$userInfo['profilePic'],$userInfo['username']]);
+  $stmt->execute([$userInfo['profilePic'],$userInfo['email'],$userInfo['birth'],$userInfo['username']]);
   return $stmt->fetch();
 }
 
