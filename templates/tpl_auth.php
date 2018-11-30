@@ -16,16 +16,17 @@
 
 <?php function draw_register(){
   ?>
+  <script src="../js/confPassword.js"></script>
 
   <section id="register">
     <h1>Register</h1>
     <form action="../actions/action_register.php" method="post">
-      <input type="text" name="username" placeholder="Username">
-      <input type="email" name="email" placeholder="E-mail">
-      <input type="password" name="password" placeholder="Password">
-      <input type="password" name="password_confirm" placeholder="Confirm Password">
-      <input type="date" name="birth" placeholder="Birth Date" value="<?php echo(date("Y-m-d")); ?>">
-      <input type="submit" value="Register">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm Password" required>
+      <input type="date" name="birth" placeholder="Birth Date" value="<?php echo(date("Y-m-d")); ?>" required>
+      <input type="submit" id="submitRegister" value="Register">
     </form>
     <p>Already have an account?<a href="login.php">Login</a></p>
   </section>
