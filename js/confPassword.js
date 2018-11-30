@@ -1,5 +1,6 @@
 window.onload = function() {
 document.getElementById("password_confirm").addEventListener('change', confPassword);
+document.getElementById("password").addEventListener('change', confPassword);
 }
 function confPassword() {
     var confPasswordField = document.getElementById("password_confirm");

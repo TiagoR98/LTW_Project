@@ -7,6 +7,7 @@
   draw_header($_SESSION['username']);
 
   $storyInfo = listStory();
+
   draw_mainpage($storyInfo);
 
   draw_footer();
