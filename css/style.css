@@ -35,6 +35,11 @@ header a{
   transform: translate(-50%, -50%);
 }
 
+#story_preview {
+  margin-top: 2%;
+  border-style: solid;
+}
+
 #login #error_text {
   color: red;
 }
@@ -75,4 +80,18 @@ header a{
 footer{
   clear: left;
   padding-top: 50px;
+}
+
+#story_preview ul{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+
+#story_preview li {
+  text-align: center;
+  list-style-type: none;
+  padding: 1em;
 }

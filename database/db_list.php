@@ -16,5 +16,12 @@ function updateProfile($userInfo) {
   return $stmt->fetch();
 }
 
+function listStory() {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT * FROM story');
+  $stmt->execute();
+  return $stmt->fetch();
+}
+
 
 ?>
