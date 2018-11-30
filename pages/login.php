@@ -5,16 +5,10 @@
 
 
   if (isset($_SESSION['username'])){
-    draw_header($_SESSION['username']);
+    draw_header(); //redirecionar para pagina inicial
   }else {
-    draw_header(NULL);
+    draw_header();
   }
-
-  if (isset($_GET['wrong_pass'])){
-    draw_login(true);
-  }else {
-    draw_login(false);
-  }
-
+  draw_login();
   draw_footer();
 ?>
