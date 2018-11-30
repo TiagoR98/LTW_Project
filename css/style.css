@@ -25,7 +25,8 @@ header a{
   color: white;
 }
 
-#login, #register, #password {
+
+#login, #register/*, #password, #password_confirm*/ {
   border-style: solid;
   padding: 0em 2em 1em 2em;
   position: absolute;
