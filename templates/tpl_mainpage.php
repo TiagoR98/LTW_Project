@@ -11,7 +11,7 @@
     <h3><?php echo($story['title']); ?></h3>
     <p><?php echo(substr($story['content'],0,20)); ?>...</p>
     <ul>
-      <li><?php echo($story['username']); ?></li>
+      <li><a href="../pages/profile.php?userId=<?php echo($story['author']); ?>"><?php echo($story['username']); ?></a></li>
       <li><?php echo($story['date']); ?></li>
       <li>Upvotes: <?php echo($story['upvotes']); ?></li>
       <li>Downvotes: <?php echo($story['downvotes']); ?></li>

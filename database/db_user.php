@@ -22,6 +22,13 @@ function getUsernameFromId($id) {
   return $stmt->fetch()['username'];
 }
 
+function getIdFromUsername($username) {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT ID FROM user WHERE username = ?');
+  $stmt->execute(array($username));
+  return $stmt->fetch()['id'];
+}
+
 function insertUser($username, $password,$email,$birth) {
   $db = Database::instance()->db();
   $stmt = $db->prepare('INSERT INTO user (username,password,email,birth) VALUES(?, ?, ?, ?)');

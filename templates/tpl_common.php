@@ -9,10 +9,11 @@
   </head>
   <body>
     <header>
-      <h1><a href="register.php">channelOmania</a></h1>
+      <h1><a href="mainpage.php">channelOmania</a></h1>
       <?php if(isset($_SESSION['username'])){ ?>
         <h2>Bem-Vindo <?php echo($_SESSION['username']) ?> </h2>
         <h2><a href="../actions/action_logout.php">Logout</a></h2>
+        <h2><a href="../pages/profile.php">Profile info</a></h2>
       <?php } ?>
     </header>
 
