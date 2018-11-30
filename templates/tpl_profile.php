@@ -13,6 +13,7 @@
       <h2>Birth date: </h2>
       <h3><time datetime="<?php echo($userInfo['birth']); ?>"><?php echo($userInfo['birth']); ?></time></h3><br>
 
+      <?php if($userInfo['username'] == $_SESSION['username']) { ?>
       <h2>Upload Profile Picture: </h2>
         <h3>
           <form action="../actions/action_edit_profile.php" method="post" enctype="multipart/form-data">
@@ -20,6 +21,8 @@
             <input type="submit">
           </form>
         </h3>
+      <?php } ?>
+      
     </div>
   </section>
 
