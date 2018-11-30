@@ -23,5 +23,11 @@ function listStory() {
   return $stmt->fetchAll();
 }
 
+function getStoriesByUser($username) {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == story.ID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE user.username = ?');
+  $stmt->execute(array($username));
+  return $stmt->fetchAll();
+}
 
 ?>

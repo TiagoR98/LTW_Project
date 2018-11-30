@@ -55,6 +55,10 @@ header a{
   margin: 1em 0;
 }
 
+#profile {
+  display: inline-block;
+}
+
 #profile #profile_info {
   float: left;
 }
@@ -76,6 +80,10 @@ header a{
   width: 300px;
   float: left;
   padding: 0px 30px;
+}
+
+#myStories {
+  display: block;
 }
 
 footer{

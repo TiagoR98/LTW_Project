@@ -40,3 +40,12 @@
   <?php } ?>
 
 <?php } ?>
+
+<?php function draw_user_stories($stories) { ?>
+  <section id="myStories">
+    <h1>My Stories</h1>
+      <?php foreach($stories as $story) { ?>
+        <?php draw_story_list_item($story); ?>
+      <?php } ?>
+  </section>
+<?php } ?>
