@@ -18,9 +18,9 @@ function updateProfile($userInfo) {
 
 function listStory() {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT * FROM story');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == story.ID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author');
   $stmt->execute();
-  return $stmt->fetch();
+  return $stmt->fetchAll();
 }
 
 
