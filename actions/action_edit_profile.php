@@ -9,6 +9,7 @@ if(isset($_FILES['profilePic'])){
 
   $extension =  findexts($_FILES["profilePic"]["name"]);
 
+  $oldPic = $userInfo['profilePic'];
   $userInfo['profilePic']=uniqid().$extension;
   $target_dir = "../files/profilePics/";
   $target_file = $target_dir .  $userInfo['profilePic'];
@@ -19,7 +20,9 @@ if(isset($_FILES['profilePic'])){
 
   if($check !== false && $check[1]<=$max_image_size && $check[2]<=$max_image_size) {
     try{
+      unlink($target_dir.$oldPic); //elimina a imagem antiga
       move_uploaded_file($_FILES["profilePic"]["tmp_name"], $target_file);
+      chmod($target_file, 0666); //permissao de escrita
     }catch(Exception $e){
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
         header('Location:../pages/profile.php');
