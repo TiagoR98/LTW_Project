@@ -5,10 +5,9 @@
 
 
   if (isset($_SESSION['username'])){
-    draw_header(); //redirecionar para pagina inicial
-  }else {
-    draw_header();
+    header('Location:../pages/mainpage.php');
   }
+  draw_header();
   draw_login();
   draw_footer();
 ?>
