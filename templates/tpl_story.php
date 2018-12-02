@@ -31,3 +31,31 @@
     </form>
   </section>
 <?php } ?>
+
+<?php function draw_comments($comments) { ?>
+
+  <h3>All Comments</h3>
+
+  <?php foreach($comments as $comment) { ?>
+    <?php draw_comment($comment); ?>
+  <?php } ?>
+
+<?php } ?>
+
+<?php function draw_comment($comment) { ?>
+  <section id="comment">
+    <article >
+      <header>
+        <?php echo($comment['username']); ?>
+      </header>
+      <p><?php echo($comment['content']); ?></p>
+      <footer>
+        <ul>
+          <li><?php echo($comment['date']); ?></li>
+          <li>Upvotes: <?php echo($comment['upvotes']); ?></li>
+          <li>Downvotes: <?php echo($comment['downvotes']); ?></li>
+        </ul>
+      </footer>
+    </article>
+  </section>
+<?php } ?>

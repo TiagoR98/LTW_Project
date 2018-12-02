@@ -30,4 +30,11 @@ function getStoriesByUser($username) {
   return $stmt->fetchAll();
 }
 
+function getCommentsByStory($storyID) {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT * FROM comment INNER JOIN user ON author == user.ID WHERE comment.story = ?');
+  $stmt->execute(array($storyID));
+  return $stmt->fetchAll();
+}
+
 ?>

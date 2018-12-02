@@ -36,7 +36,7 @@ header a{
   transform: translate(-50%, -50%);
 }
 
-#story_preview {
+#story_preview, #comment {
   margin-top: 2%;
   border-style: solid;
 }
