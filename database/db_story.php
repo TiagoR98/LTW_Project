@@ -14,4 +14,10 @@ function addStory($title,$content,$author,$date,$channel) {
   $stmt->execute(array($title,$content,$author,$date,$channel));
 }
 
+function addComment($content,$date,$story,$author) {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('INSERT INTO comment (content,date,story,author) VALUES(?, ?, ?, ?)');
+  $stmt->execute(array($content,$date,$story,$author));
+}
+
  ?>
