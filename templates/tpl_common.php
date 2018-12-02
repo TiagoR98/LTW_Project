@@ -8,7 +8,7 @@
     <link href="../css/style.css" rel="stylesheet">
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1><a href="mainpage.php">channelOmania</a></h1>
       <?php if(isset($_SESSION['username'])){ ?>
         <h2>Bem-Vindo <?php echo($_SESSION['username']) ?> </h2>

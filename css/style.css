@@ -3,7 +3,7 @@ body {
   background-color: #FFEAE7;
 }
 
-header{
+.header{
   background-color: #800000;
   padding: 0.2em;
   position: relative;
@@ -50,7 +50,7 @@ header a{
   font-size: 2.5em;
 }
 
-#login input, #register input, #password input {
+#login input, #register input, #password input, #new_story input {
   display: block;
   margin: 1em 0;
 }
@@ -91,7 +91,7 @@ footer{
   padding-top: 50px;
 }
 
-#story_preview ul{
+ul{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -99,7 +99,7 @@ footer{
   margin: 0;
 }
 
-#story_preview li {
+li {
   text-align: center;
   list-style-type: none;
   padding: 1em;
