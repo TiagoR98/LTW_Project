@@ -60,3 +60,22 @@
     </article>
   </section>
 <?php } ?>
+
+<?php function draw_story_list($storyInfo) { ?>
+  <p>Order By:
+  <select id='orderSelector'>
+    <option value="mRecent">Latest</option>
+    <option value="mOld">Oldest</option>
+    <option value="mUpVoted">Most Upvoted</option>
+    <option value="mDownVoted">Most Downvoted</option>
+    <option value="mComments">Most Commented</option>
+  </select></p>
+  <script src="../js/order.js"></script>
+
+  <section id="storyList">
+  <?php foreach($storyInfo as $story) { ?>
+    <?php draw_story_list_item($story); ?>
+  <?php } ?>
+  <script src="../js/downUpvote.js"></script>
+  </section>
+<?php } ?>

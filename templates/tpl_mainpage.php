@@ -1,3 +1,5 @@
+<?php include_once('../templates/tpl_story.php'); ?>
+
 <?php function draw_mainpage($storyInfo) { ?>
 
   <?php $channels = listChannel(); ?>
@@ -8,10 +10,7 @@
   <h2>All Stories</h2>
   <p><a href = "../pages/new_story.php" >Add a story</a></p>
 
-  <?php foreach($storyInfo as $story) { ?>
-    <?php draw_story_list_item($story); ?>
-  <?php } ?>
-  <script src="../js/downUpvote.js"></script>
+  <?php draw_story_list($storyInfo); ?>
 
 <?php } ?>
 
