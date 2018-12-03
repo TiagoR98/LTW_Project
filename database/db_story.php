@@ -42,4 +42,19 @@ function addComment($content,$date,$story,$author) {
   $stmt = $db->prepare('INSERT INTO comment (content,date,story,author) VALUES(?, ?, ?, ?)');
   $stmt->execute(array($content,$date,$story,$author));
 }
+
+function addCommentVote($commentId,$username,$type){
+  $userID = getIdFromUsername($username);
+  $typeID = getVoteTypeID($type);
+
+
+  //delete existing votes
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('DELETE FROM vote_comment WHERE user = ? AND comment = ?');
+  $stmt->execute(array($userID,$commentId));
+
+  //add new vote
+  $stmt = $db->prepare('INSERT INTO vote_comment VALUES(?, ?, ?)');
+  $stmt->execute(array($userID,$commentId,$typeID));
+}
  ?>

@@ -40,6 +40,8 @@
   <?php foreach($comments as $comment) { ?>
     <?php draw_comment($comment); ?>
   <?php } ?>
+  <?php print_r($comments); ?>
+  <script src="../js/commentVotes.js"></script>
 
 <?php } ?>
 
@@ -53,8 +55,8 @@
       <footer>
         <ul>
           <li><?php echo($comment['date']); ?></li>
-          <li>Upvotes: <?php echo($comment['upvotes']); ?></li>
-          <li>Downvotes: <?php echo($comment['downvotes']); ?></li>
+          <li class="commentUpVote" data-id="<?php echo($comment['comID']); ?>">Upvotes: <?php echo($comment['upvotes']); ?></li>
+          <li class="commentDownVote" data-id="<?php echo($comment['comID']); ?>">Downvotes: <?php echo($comment['downvotes']); ?></li>
         </ul>
       </footer>
     </article>
