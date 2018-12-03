@@ -1,5 +1,5 @@
 
-let downVoteButtons = document.querySelectorAll('.nDownVote');
+let downVoteButtons = document.querySelectorAll('.nDownVote');ability to delete a upvote/downvote
 downVoteButtons.forEach((downVoteButton) => downVoteButton.addEventListener('click', newDownVote));
 let upVoteButtons = document.querySelectorAll('.nUpVote');
 upVoteButtons.forEach((upVoteButton) => upVoteButton.addEventListener('click', newUpVote));
@@ -22,7 +22,6 @@ function newDownVote(event) {
       });
   })
   request.send(encodeForAjax({storyId: storyId,voteType: 'downvote'}))
-
 
 }
 

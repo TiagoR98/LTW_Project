@@ -6,6 +6,11 @@
   include_once('../database/db_story.php');
   include_once('../database/db_list.php');
 
+  // Verify if user is logged in
+    if (!isset($_SESSION['username']))
+    die(header('Location: ../pages/login.php'));
+
+
   draw_header($_SESSION['username']);
 
   $story = getStory($_GET['storyId']);
