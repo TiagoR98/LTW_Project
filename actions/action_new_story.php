@@ -6,7 +6,7 @@ include_once('../database/db_user.php');
 $title = $_POST['title'];
 $content = $_POST['story_input'];
 $author = getIdFromUsername($_SESSION['username']);
-$date = date("Y-m-d");
+$date = date("Y-m-d H:i:s");
 $channel = 1; //temporary
 
 try {

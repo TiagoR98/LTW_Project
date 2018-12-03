@@ -47,7 +47,7 @@
   <section id="comment">
     <article >
       <header>
-        <?php echo($comment['username']); ?>
+        <a href="../pages/profile.php?userId=<?php echo($comment['author']); ?>"><?php echo($comment['username']); ?></a>
       </header>
       <p><?php echo($comment['content']); ?></p>
       <footer>
