@@ -18,14 +18,14 @@ function updateProfile($userInfo) {
 
 function listStory() {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author ORDER BY storyID DESC');
   $stmt->execute();
   return $stmt->fetchAll();
 }
 
 function getStoriesByUser($username) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE user.username = ?');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE user.username = ? ORDER BY storyID DESC');
   $stmt->execute(array($username));
   return $stmt->fetchAll();
 }
@@ -39,7 +39,7 @@ function getStoriesByChannel($channelID) {
 
 function getCommentsByStory($storyID) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT * FROM comment INNER JOIN user ON author == user.ID WHERE comment.story = ?');
+  $stmt = $db->prepare('SELECT * FROM comment INNER JOIN user ON author == user.ID WHERE comment.story = ? ORDER BY ID DESC');
   $stmt->execute(array($storyID));
   return $stmt->fetchAll();
 }
