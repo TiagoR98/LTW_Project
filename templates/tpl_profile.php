@@ -48,4 +48,5 @@
         <?php draw_story_list_item($story); ?>
       <?php } ?>
   </section>
+  <script src="../js/downUpvote.js"></script>
 <?php } ?>

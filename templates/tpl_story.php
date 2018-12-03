@@ -10,6 +10,7 @@
       <footer><?php draw_story_info($story); ?></footer>
     </article>
   </section>
+  <script src="../js/downUpvote.js"></script>
 <?php } ?>
 
 <?php function draw_new_story() { ?>
