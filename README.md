@@ -8,5 +8,6 @@
 - [ ] ability to delete a upvote/downvote
 - [ ] session token
 - [ ] password salt
+- [ ] check current user in actions
 
 
