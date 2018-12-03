@@ -1,5 +1,6 @@
 <?php
 include_once('../includes/database.php');
+include_once('db_user.php');
 
 function getStory($id) {
   $db = Database::instance()->db();
@@ -14,10 +15,31 @@ function addStory($title,$content,$author,$date,$channel) {
   $stmt->execute(array($title,$content,$author,$date,$channel));
 }
 
+function addStoryVote($storyId,$username,$type){
+  $userID = getIdFromUsername($username);
+  $typeID = getVoteTypeID($type);
+
+
+  //delete existing votes
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('DELETE FROM vote_story WHERE user = ? AND story = ?');
+  $stmt->execute(array($userID,$storyId));
+
+  //add new vote
+  $stmt = $db->prepare('INSERT INTO vote_story VALUES(?, ?, ?)');
+  $stmt->execute(array($userID,$storyId,$typeID));
+}
+
+function getVoteTypeID($type){
+  $db = Database::instance()->db();
+  $stmt = $db->prepare("SELECT ID from vote_type WHERE type LIKE ?");
+  $stmt->execute(array("%$type%"));
+  return $stmt->fetch()['ID'];
+}
+
 function addComment($content,$date,$story,$author) {
   $db = Database::instance()->db();
   $stmt = $db->prepare('INSERT INTO comment (content,date,story,author) VALUES(?, ?, ?, ?)');
   $stmt->execute(array($content,$date,$story,$author));
 }
-
  ?>
