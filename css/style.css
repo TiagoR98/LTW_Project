@@ -36,7 +36,7 @@ header a{
   transform: translate(-50%, -50%);
 }
 
-#story_preview {
+#story_preview, #comment {
   margin-top: 2%;
   border-style: solid;
 }
@@ -50,7 +50,12 @@ header a{
   font-size: 2.5em;
 }
 
-#login input, #register input, #password input, #new_story input {
+/*#login input, #register input, #password input, #new_story input {
+  display: block;
+  margin: 1em 0;
+}*/
+
+input {
   display: block;
   margin: 1em 0;
 }

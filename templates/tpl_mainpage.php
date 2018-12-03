@@ -25,5 +25,6 @@
     <li class="nUpVote" data-id="<?php echo($story['storyID']); ?>">Upvotes: <?php echo($story['upvotes']); ?></li>
     <li class="nDownVote" data-id="<?php echo($story['storyID']); ?>">Downvotes: <?php echo($story['downvotes']); ?></li>
     <li><?php echo($story['n_comments']); ?> Comments</li>
+    <li><a href="../pages/new_comment.php?storyId=<?php echo($story['storyID']); ?>"> Write a comment</a></li>
   </ul>
 <?php } ?>

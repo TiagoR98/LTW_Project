@@ -37,5 +37,9 @@ function getVoteTypeID($type){
   return $stmt->fetch()['ID'];
 }
 
-
+function addComment($content,$date,$story,$author) {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('INSERT INTO comment (content,date,story,author) VALUES(?, ?, ?, ?)');
+  $stmt->execute(array($content,$date,$story,$author));
+}
  ?>

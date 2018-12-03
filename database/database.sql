@@ -54,13 +54,13 @@ CREATE TABLE 'comment'
 	'parent_comment' INTEGER NOT NULL DEFAULT NULL,
 	CONSTRAINT 'FK_author' FOREIGN KEY ('author') REFERENCES 'user' ('ID') ON DELETE No Action ON UPDATE No Action,
 	CONSTRAINT 'FK_parent_comment' FOREIGN KEY ('parent_comment') REFERENCES 'comment' ('ID') ON DELETE No Action ON UPDATE No Action,
-	CONSTRAINT 'FK_story' FOREIGN KEY ('story') REFERENCES 'story' ('ID') ON DELETE No Action ON UPDATE No Action
+	CONSTRAINT 'FK_story' FOREIGN KEY ('story') REFERENCES 'story' ('storyID') ON DELETE No Action ON UPDATE No Action
 )
 ;
 
 CREATE TABLE 'story'
 (
-	'ID' INTEGER NOT NULL PRIMARY KEY,
+	'storyID' INTEGER NOT NULL PRIMARY KEY,
 	'title' TEXT NOT NULL,
 	'content' TEXT NOT NULL,
 	'upvotes' INTEGER NOT NULL DEFAULT 0,
