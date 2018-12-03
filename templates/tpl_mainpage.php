@@ -1,5 +1,10 @@
 <?php function draw_mainpage($storyInfo) { ?>
 
+  <?php $channels = listChannel(); ?>
+  <?php foreach($channels as $channel) { ?>
+    <p><a href = "../pages/channel.php?channelId=<?php echo($channel['ID']); ?>" ><?php echo($channel['name']); ?></a></p>
+  <?php } ?>
+
   <h2>All Stories</h2>
   <p><a href = "../pages/new_story.php" >Add a story</a></p>
 

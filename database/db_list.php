@@ -30,10 +30,24 @@ function getStoriesByUser($username) {
   return $stmt->fetchAll();
 }
 
+function getStoriesByChannel($channelID) {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE story.channel == ?');
+  $stmt->execute(array($channelID));
+  return $stmt->fetchAll();
+}
+
 function getCommentsByStory($storyID) {
   $db = Database::instance()->db();
   $stmt = $db->prepare('SELECT * FROM comment INNER JOIN user ON author == user.ID WHERE comment.story = ?');
   $stmt->execute(array($storyID));
+  return $stmt->fetchAll();
+}
+
+function listChannel() {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT * FROM channel');
+  $stmt->execute();
   return $stmt->fetchAll();
 }
 

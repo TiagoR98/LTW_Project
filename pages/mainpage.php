@@ -8,7 +8,7 @@
   draw_header($_SESSION['username']);
 
   $storyInfo = listStory();
-  print_r($storyInfo);
+  //print_r($storyInfo);
 
   draw_mainpage($storyInfo);
 

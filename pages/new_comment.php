@@ -4,6 +4,7 @@
   include_once('../templates/tpl_story.php');
   include_once('../templates/tpl_story.php');
   include_once('../database/db_story.php');
+  include_once('../database/db_list.php');
 
   draw_header($_SESSION['username']);
 
@@ -11,6 +12,11 @@
   draw_story($story);
 
   draw_new_comment($story);
+
+  $storyID = $story['storyID'];
+  $comments = getCommentsByStory($storyID);
+
+  draw_comments($comments);
 
   draw_footer();
 ?>
