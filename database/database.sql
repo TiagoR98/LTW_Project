@@ -127,3 +127,8 @@ CREATE TABLE 'vote_type'
 	'user' INTEGER NOT NULL
 )
 ;
+
+CREATE TRIGGER update_story_downvotes AFTER  INSERT ON vote_story WHEN new.type = 'downvote'
+  BEGIN
+    UPDATE story SET downvotes = (SELECT COUNT(*) FROM vote_story WHERE vote_story.story = new.story AND type = new.type) WHERE story = new.story;
+  END;
