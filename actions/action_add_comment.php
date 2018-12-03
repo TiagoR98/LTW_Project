@@ -3,6 +3,11 @@ include_once('../includes/session.php');
 include_once('../database/db_story.php');
 include_once('../database/db_user.php');
 
+// Verify if user is logged in
+  if (!isset($_SESSION['username']))
+  die(header('Location: ../pages/login.php'));
+
+
 $content = $_POST['content'];
 $author = getIdFromUsername($_SESSION['username']);
 $date = date("Y-m-d H:i:s");
