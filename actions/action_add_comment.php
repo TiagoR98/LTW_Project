@@ -10,7 +10,7 @@ include_once('../database/db_user.php');
 
 $content = $_POST['content'];
 $author = getIdFromUsername($_SESSION['username']);
-$date = date("Y-m-d");
+$date = date("Y-m-d H:i:s");
 $story = $_REQUEST['storyId'];
 
 try {
