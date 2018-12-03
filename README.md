@@ -9,5 +9,5 @@
 - [ ] session token
 - [ ] password salt
 - [ ] check current user in actions
-
-
+- [ ] javascript injection
+- [ ] images on comments and stories
