@@ -60,9 +60,16 @@ function getStoriesByChannel($channelID) {
 
 function getCommentsByStory($storyID) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT * FROM comment INNER JOIN user ON author == user.ID WHERE comment.story = ? ORDER BY ID DESC');
+  $stmt = $db->prepare('SELECT *, comment.ID AS comID FROM comment INNER JOIN user ON author == user.ID WHERE comment.story = ?');
   $stmt->execute(array($storyID));
   return $stmt->fetchAll();
+}
+
+function getComment($id) {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT * FROM comment WHERE ID == $id');
+  $stmt->execute(array($id));
+  return $stmt->fetch();
 }
 
 function listChannel() {
