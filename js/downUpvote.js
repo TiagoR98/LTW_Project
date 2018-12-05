@@ -1,9 +1,15 @@
+//execute AJAX up/downvote everytime user changes order
+document.body.addEventListener('DOMSubtreeModified', updateElements);
+window.addEventListener('load', updateElements);
 
-let downVoteButtons = document.querySelectorAll('.nDownVote');
+let downVoteButtons,upVoteButtons;
+
+function updateElements(){
+downVoteButtons = document.querySelectorAll('.nDownVote');
 downVoteButtons.forEach((downVoteButton) => downVoteButton.addEventListener('click', newDownVote));
-let upVoteButtons = document.querySelectorAll('.nUpVote');
+upVoteButtons = document.querySelectorAll('.nUpVote');
 upVoteButtons.forEach((upVoteButton) => upVoteButton.addEventListener('click', newUpVote));
-
+}
 
 function newDownVote(event) {
   let button = event.target;
