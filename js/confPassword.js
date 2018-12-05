@@ -22,10 +22,10 @@ function confPassword() {
     if(confPasswordField.value != passwordField.value){
       errorMessage.appendChild(document.createTextNode("Passwords don't match!"));
       showError=true;
-    }else if(confPasswordField.value.length <= minPassLength){
+    }else if(confPasswordField.value.length < minPassLength){
       errorMessage.appendChild(document.createTextNode("Password shorter than "+minPassLength+" characters! "));
       showError=true;
-    }else if(confPasswordField.value.length >= maxPassLength){
+    }else if(confPasswordField.value.length > maxPassLength){
       errorMessage.appendChild(document.createTextNode("Password longer than "+maxPassLength+" characters! "));
       showError=true;
     }
