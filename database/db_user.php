@@ -3,9 +3,10 @@ include_once('../includes/database.php');
 
 function checkUserPassword($username, $password) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT * FROM user WHERE username = ? AND password = ?');
-  $stmt->execute(array($username, sha1($password)));
-  return $stmt->fetch()?true:false;
+  $stmt = $db->prepare('SELECT * FROM user WHERE username = ?');
+  $stmt->execute(array($username));
+  $user = $stmt->fetch();
+  return ($user !== false && password_verify($password,$user['password']));
 }
 
 function checkUsernameExists($username) {
@@ -32,7 +33,7 @@ function getIdFromUsername($username) {
 function insertUser($username, $password,$email,$birth) {
   $db = Database::instance()->db();
   $stmt = $db->prepare('INSERT INTO user (username,password,email,birth) VALUES(?, ?, ?, ?)');
-  $stmt->execute(array($username, sha1($password), $email,$birth));
+  $stmt->execute(array($username, password_hash($password,PASSWORD_DEFAULT,['cost'=>12]), $email,$birth));
 }
 
 
