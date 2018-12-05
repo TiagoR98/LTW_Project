@@ -7,9 +7,26 @@ $password = $_POST['password'];
 $email = $_POST['email'];
 $birth = $_POST['birth'];
 
+$minPassLength = 6;
+$maxPassLength = 60;
+
 //verifica se dados vazios
 if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['birth'])) {
   $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Invalid register data!');
+  header('Location: ../pages/register.php');
+  die();
+}
+
+//verifica caracteres especiais username
+if ( !preg_match ("/^[a-zA-Z\s0-9]+$/", $_POST['username'])) {
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Username can only contain letters,numbers and spaces');
+  header('Location: ../pages/register.php');
+  die();
+}
+
+//verifica caracteres especiais email
+if ( !preg_match ("/^[a-zA-Z0-9@.]+$/", $_POST['email'])) {
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Email contain invalid characters');
   header('Location: ../pages/register.php');
   die();
 }
@@ -22,7 +39,7 @@ if(checkUsernameExists($username)){
 }
 
 //veirifica tamanho password
-if($password.length < $minPassLength || $password.length > $maxPassLength){
+if(strlen($password) < $minPassLength || strlen($password) > $maxPassLength){
   $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Password size error');
   header('Location: ../pages/register.php');
   die();
