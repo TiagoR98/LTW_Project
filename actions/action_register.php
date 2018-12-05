@@ -26,7 +26,15 @@ if ( !preg_match ("/^[a-zA-Z\s0-9]+$/", $_POST['username'])) {
 
 //verifica caracteres especiais email
 if ( !preg_match ("/^[a-zA-Z0-9@.]+$/", $_POST['email'])) {
-  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Email contain invalid characters');
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Email contains invalid characters');
+  header('Location: ../pages/register.php');
+  die();
+}
+
+
+//verifica caracteres especiais data
+if ( !preg_match ("/^[0-9-]+$/", $_POST['birth'])) {
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Birthdate contains invalid characters');
   header('Location: ../pages/register.php');
   die();
 }

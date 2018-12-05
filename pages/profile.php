@@ -10,6 +10,7 @@
     draw_header();
   }else {
     header('Location: login.php');
+    die();
   }
 
   if(isset($_GET['userId']))
