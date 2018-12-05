@@ -21,6 +21,13 @@ if(checkUsernameExists($username)){
   die();
 }
 
+//veirifica tamanho password
+if($password.length < $minPassLength || $password.length > $maxPassLength){
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Password size error');
+  header('Location: ../pages/register.php');
+  die();
+}
+
 try {
   insertUser($username, $password, $email, $birth);
   $_SESSION['username'] = $username;
