@@ -28,6 +28,7 @@
   <section id="new_comment">
     <form action="../actions/action_add_comment.php?storyId=<?php echo($story['storyID']); ?>" method="post">
       <textarea name="content" cols="40" rows="5" placeholder="Type your comment here"></textarea>
+      <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
       <input type="submit" value="Post">
     </form>
   </section>
@@ -40,7 +41,6 @@
   <?php foreach($comments as $comment) { ?>
     <?php draw_comment($comment); ?>
   <?php } ?>
-  <?php print_r($comments); ?>
   <script src="../js/commentVotes.js"></script>
 
 <?php } ?>

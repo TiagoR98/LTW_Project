@@ -9,6 +9,8 @@
     if (!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
 
+  draw_header();
+  
   $storyInfo = listStory('');
 
   draw_mainpage($storyInfo);
