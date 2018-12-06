@@ -7,7 +7,7 @@
 - [x] upvotes/downvotes on comments
 - [ ] ability to delete a upvote/downvote
 - [ ] session token
-- [ ] password salt
+- [x] password salt
 - [x] check current user in actions
 - [ ] javascript injection
 - [ ] images on comments and stories
