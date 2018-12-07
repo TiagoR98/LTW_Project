@@ -72,10 +72,31 @@ function getStoriesByUser($username,$sort='',$offset=0,$limit=5) {
   return $stmt->fetchAll();
 }
 
-function getStoriesByChannel($channelID) {
+function getStoriesByChannel($channelID,$sort='',$offset=0,$limit=5) {
+  switch($sort){
+    case 'mRecent':
+      $order = 'storyID DESC';
+      break;
+    case 'mOld':
+      $order = 'storyID ASC';
+      break;
+    case 'mUpVoted':
+      $order = 'upvotes DESC';
+      break;
+    case 'mDownVoted':
+      $order = 'downvotes DESC';
+      break;
+    case 'mComments':
+      $order = 'n_comments DESC';
+      break;
+    default:
+      $order = 'storyID DESC';
+      break;
+  }
+
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE story.channel == ?');
-  $stmt->execute(array($channelID));
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE story.channel == ? ORDER BY '.$order.' LIMIT ? OFFSET ?');
+  $stmt->execute(array($channelID,$limit,$offset));
   return $stmt->fetchAll();
 }
 

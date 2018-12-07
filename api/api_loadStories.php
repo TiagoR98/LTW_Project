@@ -16,6 +16,8 @@ try {
 
 if(isset($_POST['userStories']) && ($_POST['userStories'] !== "false")){
   $result = getStoriesByUser(getUsernameFromId($_POST['userStories']),$order,$offset,$limit);
+}else if(isset($_POST['channelStories']) && ($_POST['channelStories'] !== "false")){
+  $result = getStoriesByChannel($_POST['channelStories'],$order,$offset,$limit);
 }else{
   $result = listStory($order,$offset,$limit);
 }

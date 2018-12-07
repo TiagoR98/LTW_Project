@@ -9,13 +9,12 @@
 
   <h1><?php echo($channels[$_GET['channelId']-1]['name']); ?></h1>
 
+  <section id="channelStories" data-id="<?php echo $channel[0]['channel'] ?>">
   <h2>All Stories</h2>
   <p><a href = "../pages/new_story.php?channelId=<?php echo($_GET['channelId']); ?>" >Add a story</a></p>
 
-  <?php foreach($channel as $story) { ?>
-    <?php draw_story_list_item($story); ?>
-  <?php } ?>
-
+  <?php draw_story_list($channel); ?>
+</section>
 <?php } ?>
 
 <?php function draw_new_channel() { ?>
