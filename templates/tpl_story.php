@@ -1,4 +1,5 @@
 <?php include_once('../templates/tpl_mainpage.php'); ?>
+<?php include_once('../database/db_list.php'); ?>
 
 <?php function draw_story($story) { ?>
   <section id="story">
@@ -14,9 +15,16 @@
 <?php } ?>
 
 <?php function draw_new_story() { ?>
+  <?php $channels = listChannel(); ?>
   <section id="new_story">
     <h2>Write your story</h2>
     <form action="../actions/action_new_story.php" method="post">
+      <p>Channel:
+      <select name="channel" id='channelSelector'>
+        <?php foreach($channels as $channel_list) { ?>
+          <option value="<?php echo($channel_list['ID']); ?>"><?php echo($channel_list['name']); ?></option>
+        <?php } ?>
+      </select></p>
       <input type="text" name="title" placeholder="Title">
       <textarea name="story_input" cols="40" rows="5" placeholder="Type your story here"></textarea>
       <input type="submit" value="Post">

@@ -11,4 +11,4 @@
 - [x] check current user in actions
 - [ ] javascript injection
 - [ ] images on comments and stories
-- [ ] post story to a specific channel
+- [x] post story to a specific channel

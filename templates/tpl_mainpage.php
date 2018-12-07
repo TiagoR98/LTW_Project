@@ -2,6 +2,7 @@
 
 <?php function draw_mainpage($storyInfo) { ?>
 
+  <p><a href = "../pages/new_channel.php" >Create a channel</a></p>
   <?php $channels = listChannel(); ?>
   <?php foreach($channels as $channel) { ?>
     <p><a href = "../pages/channel.php?channelId=<?php echo($channel['ID']); ?>" ><?php echo($channel['name']); ?></a></p>
