@@ -14,5 +14,4 @@ $storyInfo = listStory($order);
 foreach($storyInfo as $story) {
   draw_story_list_item($story);
 }
-echo('<script src="../js/downUpvote.js"></script>');
 ?>

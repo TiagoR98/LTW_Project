@@ -88,4 +88,7 @@
   <?php } ?>
   <script src="../js/downUpvote.js"></script>
   </section>
+
+  <button id="btnLoadStories">Load more stories</button>
+  <script src="../js/loadStories.js"></script>
 <?php } ?>
