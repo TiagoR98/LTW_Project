@@ -16,7 +16,7 @@ function updateProfile($userInfo) {
   return $stmt->fetch();
 }
 
-function listStory($sort) {
+function listStory($sort='',$offset = 0,$limit = 5) {
   switch($sort){
     case 'mRecent':
       $order = 'storyID DESC';
@@ -39,8 +39,8 @@ function listStory($sort) {
   }
 
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author ORDER BY '.$order);
-  $stmt->execute();
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author ORDER BY '.$order.' LIMIT ? OFFSET ?');
+  $stmt->execute(array($limit,$offset));
   return $stmt->fetchAll();
 }
 
