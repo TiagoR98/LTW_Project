@@ -17,3 +17,14 @@
   <?php } ?>
 
 <?php } ?>
+
+<?php function draw_new_channel() { ?>
+  <section id="new_channel">
+    <h2>Create your channel</h2>
+    <form action="../actions/action_new_channel.php" method="post">
+      <input type="text" name="name" placeholder="Name">
+
+      <input type="submit" value="Create">
+    </form>
+  </section>
+<?php } ?>
