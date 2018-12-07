@@ -42,7 +42,7 @@
 <?php } ?>
 
 <?php function draw_user_stories($stories) { ?>
-  <section id="myStories" data-id="<?php echo $stories[0]['ID'] ?>">
+  <section id="myStories" data-id="<?php echo $stories[0]['author'] ?>">
     <h1>My Stories</h1>
       <?php draw_story_list($stories); ?>
   </section>
