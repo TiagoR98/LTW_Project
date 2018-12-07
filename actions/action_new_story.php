@@ -12,12 +12,12 @@ $title = $_POST['title'];
 $content = $_POST['story_input'];
 $author = getIdFromUsername($_SESSION['username']);
 $date = date("Y-m-d H:i:s");
-$channel = 1; //temporary
+$channel = $_POST['channel'];
 
 try {
   addStory($title,$content,$author,$date,$channel);
   $_SESSION['messages'][] = array('type' => 'success', 'content' => 'New story posted Successfully');
-  header('Location: ../pages/mainpage.php');
+  header('Location: ../pages/channel.php?channelId='.$channel);
 } catch (PDOException $e) {
   $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error in posting story!'.$e);
   header('Location: ../pages/new_story.php');
