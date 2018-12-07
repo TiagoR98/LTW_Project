@@ -52,7 +52,6 @@
     <option value="mOld">Oldest</option>
     <option value="mUpVoted">Most Upvoted</option>
     <option value="mDownVoted">Most Downvoted</option>
-    <option value="mComments">Most Commented</option>
   </select></p>
   <script src="../js/commentOrder.js"></script>
   <section id="commentList">
