@@ -100,10 +100,28 @@ function getStoriesByChannel($channelID,$sort='',$offset=0,$limit=5) {
   return $stmt->fetchAll();
 }
 
-function getCommentsByStory($storyID) {
+function getCommentsByStory($storyID,$sort='',$offset=0,$limit=5) {
+  switch($sort){
+    case 'mRecent':
+      $order = 'ID DESC';
+      break;
+    case 'mOld':
+      $order = 'ID ASC';
+      break;
+    case 'mUpVoted':
+      $order = 'upvotes DESC';
+      break;
+    case 'mDownVoted':
+      $order = 'downvotes DESC';
+      break;
+    default:
+      $order = 'ID DESC';
+      break;
+  }
+
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *, comment.ID AS comID FROM comment INNER JOIN user ON author == user.ID WHERE comment.story = ?');
-  $stmt->execute(array($storyID));
+  $stmt = $db->prepare('SELECT *, comment.ID AS comID FROM comment INNER JOIN user ON author == user.ID WHERE comment.story = ? ORDER BY '.$order.' LIMIT ? OFFSET ?');
+  $stmt->execute(array($storyID,$limit,$offset));
   return $stmt->fetchAll();
 }
 

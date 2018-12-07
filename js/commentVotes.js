@@ -1,8 +1,15 @@
-let commentDownVoteButtons = document.querySelectorAll('.commentDownVote');
-commentDownVoteButtons.forEach((downVoteButton) => downVoteButton.addEventListener('click', newDownVote));
-let commentUpVoteButtons = document.querySelectorAll('.commentUpVote');
-commentUpVoteButtons.forEach((upVoteButton) => upVoteButton.addEventListener('click', newUpVote));
+//execute AJAX up/downvote everytime user changes order
+document.body.addEventListener('DOMSubtreeModified', updateElements);
+window.addEventListener('load', updateElements);
 
+let commentDownVoteButtons,commentUpVoteButtons;
+
+function updateElements(){
+commentDownVoteButtons = document.querySelectorAll('.commentDownVote');
+commentDownVoteButtons.forEach((commentDownVoteButton) => commentDownVoteButton.addEventListener('click', newDownVote));
+commentUpVoteButtons = document.querySelectorAll('.commentUpVote');
+commentUpVoteButtons.forEach((commentUpVoteButton) => commentUpVoteButton.addEventListener('click', newUpVote));
+}
 
 function newDownVote(event) {
   let button = event.target;
