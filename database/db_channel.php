@@ -8,4 +8,5 @@ function addChannel($name,$author) {
   $stmt->execute(array(htmlspecialchars($name),htmlspecialchars($author)));
 }
 
+
 ?>

@@ -39,7 +39,7 @@ function listStory($sort='',$offset = 0,$limit = 5) {
   }
 
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author ORDER BY '.$order.' LIMIT ? OFFSET ?');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments,channel.name AS channelName FROM story INNER JOIN user ON user.ID == story.author INNER JOIN channel ON channel.ID == story.channel ORDER BY '.$order.' LIMIT ? OFFSET ?');
   $stmt->execute(array($limit,$offset));
   return $stmt->fetchAll();
 }
@@ -67,7 +67,7 @@ function getStoriesByUser($username,$sort='',$offset=0,$limit=5) {
   }
 
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE user.username == ? ORDER BY '.$order.' LIMIT ? OFFSET ?');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments,channel.name AS channelName FROM story INNER JOIN user ON user.ID == story.author INNER JOIN channel ON channel.ID == story.channel  WHERE user.username == ? ORDER BY '.$order.' LIMIT ? OFFSET ?');
   $stmt->execute(array($username,$limit,$offset));
   return $stmt->fetchAll();
 }
@@ -95,7 +95,7 @@ function getStoriesByChannel($channelID,$sort='',$offset=0,$limit=5) {
   }
 
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE story.channel == ? ORDER BY '.$order.' LIMIT ? OFFSET ?');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments,channel.name AS channelName FROM story INNER JOIN user ON user.ID == story.author INNER JOIN channel ON channel.ID == story.channel  WHERE story.channel == ? ORDER BY '.$order.' LIMIT ? OFFSET ?');
   $stmt->execute(array($channelID,$limit,$offset));
   return $stmt->fetchAll();
 }

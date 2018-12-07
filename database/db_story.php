@@ -4,7 +4,7 @@ include_once('db_user.php');
 
 function getStory($id) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE storyID == ?');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments,channel.name AS channelName FROM story INNER JOIN user ON user.ID == story.author INNER JOIN channel ON channel.ID == story.channel  WHERE storyID == ?');
   $stmt->execute(array($id));
   return $stmt->fetch();
 }

@@ -27,6 +27,7 @@
 <?php function draw_story_info($story) { ?>
   <ul>
     <li><a href="../pages/profile.php?userId=<?php echo($story['author']); ?>"><?php echo($story['username']); ?></a></li>
+    <li>Channel:<a href="../pages/channel.php?channelId=<?php echo($story['channel']); ?>"><?php echo($story['channelName']); ?></a></li>
     <li><?php echo($story['date']); ?></li>
     <li class="nUpVote" data-id="<?php echo($story['storyID']); ?>">Upvotes: <?php echo($story['upvotes']); ?></li>
     <li class="nDownVote" data-id="<?php echo($story['storyID']); ?>">Downvotes: <?php echo($story['downvotes']); ?></li>
