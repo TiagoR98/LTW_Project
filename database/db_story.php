@@ -2,10 +2,10 @@
 include_once('../includes/database.php');
 include_once('db_user.php');
 
-function getStory($id,$offset = 0,$limit = 5) {
+function getStory($id) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE storyID == $id LIMIT ? OFFSET ?');
-  $stmt->execute(array($id,$limit,$offset));
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE storyID == ?');
+  $stmt->execute(array($id));
   return $stmt->fetch();
 }
 

@@ -9,11 +9,16 @@ orderCheckBox.addEventListener('change',function(){
   loadButton.removeAttribute("disabled");
   offset=limit;
 })
-let orderType = orderCheckBox.options[orderCheckBox.selectedIndex].value;
+let userStories;
 
+if(document.getElementById('myStories') == null)
+  userStories = false;
+else
+  userStories = document.getElementById('myStories').getAttribute('data-id');
 
 function loadMoreStories(event){
 let storySection = document.getElementById("storyList");
+let orderType = orderCheckBox.options[orderCheckBox.selectedIndex].value;
 
   // Ajax request
   let request = new XMLHttpRequest()
@@ -29,7 +34,7 @@ let storySection = document.getElementById("storyList");
     offset += limit;
     }
   })
-  request.send(encodeForAjax({order: orderType ,offset: offset,limit: limit}))
+  request.send(encodeForAjax({order: orderType ,offset: offset,limit: limit,userStories: userStories}))
 }
 
 // Helper function

@@ -44,10 +44,31 @@ function listStory($sort='',$offset = 0,$limit = 5) {
   return $stmt->fetchAll();
 }
 
-function getStoriesByUser($username) {
+function getStoriesByUser($username,$sort='',$offset=0,$limit=5) {
+  switch($sort){
+    case 'mRecent':
+      $order = 'storyID DESC';
+      break;
+    case 'mOld':
+      $order = 'storyID ASC';
+      break;
+    case 'mUpVoted':
+      $order = 'upvotes DESC';
+      break;
+    case 'mDownVoted':
+      $order = 'downvotes DESC';
+      break;
+    case 'mComments':
+      $order = 'n_comments DESC';
+      break;
+    default:
+      $order = 'storyID DESC';
+      break;
+  }
+
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE user.username = ? ORDER BY storyID DESC');
-  $stmt->execute(array($username));
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments FROM story INNER JOIN user ON user.ID == story.author WHERE user.username == ? ORDER BY '.$order.' LIMIT ? OFFSET ?');
+  $stmt->execute(array($username,$limit,$offset));
   return $stmt->fetchAll();
 }
 

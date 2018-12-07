@@ -13,7 +13,13 @@ $offset = $_POST['offset'];
 $limit = $_POST['limit'];
 
 try {
+
+if(isset($_POST['userStories']) && ($_POST['userStories'] !== "false")){
+  $result = getStoriesByUser(getUsernameFromId($_POST['userStories']),$order,$offset,$limit);
+}else{
   $result = listStory($order,$offset,$limit);
+}
+
 } catch (PDOException $e) {
   echo($e);
 }
