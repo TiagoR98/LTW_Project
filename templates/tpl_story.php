@@ -78,6 +78,9 @@
           <li><?php echo($comment['date']); ?></li>
           <li class="commentUpVote" data-id="<?php echo($comment['comID']); ?>">Upvotes: <?php echo($comment['upvotes']); ?></li>
           <li class="commentDownVote" data-id="<?php echo($comment['comID']); ?>">Downvotes: <?php echo($comment['downvotes']); ?></li>
+          <?php if($comment['username'] == $_SESSION['username']) { ?>
+            <li><a href="../actions/action_delete_comment.php?commentId=<?php echo($comment['comID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"> Delete Comment</a></li>
+          <?php } ?>
         </ul>
       </footer>
     </article>

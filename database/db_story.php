@@ -4,7 +4,7 @@ include_once('db_user.php');
 
 function getStory($id) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments,channel.name AS channelName FROM story INNER JOIN user ON user.ID == story.author INNER JOIN channel ON channel.ID == story.channel  WHERE storyID == ?');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments,channel.name AS channelName,story.author AS storyAuthor FROM story INNER JOIN user ON user.ID == story.author INNER JOIN channel ON channel.ID == story.channel  WHERE storyID == ?');
   $stmt->execute(array($id));
   return $stmt->fetch();
 }
@@ -56,5 +56,11 @@ function addCommentVote($commentId,$username,$type){
   //add new vote
   $stmt = $db->prepare('INSERT INTO vote_comment VALUES(?, ?, ?)');
   $stmt->execute(array($userID,$commentId,$typeID));
+}
+
+function deleteStory($storyId){
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('DELETE FROM story WHERE storyID = ?');
+  $stmt->execute(array($storyId));
 }
  ?>

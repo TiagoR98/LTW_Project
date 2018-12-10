@@ -39,7 +39,7 @@ function listStory($sort='',$offset = 0,$limit = 5) {
   }
 
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments,channel.name AS channelName FROM story INNER JOIN user ON user.ID == story.author INNER JOIN channel ON channel.ID == story.channel ORDER BY '.$order.' LIMIT ? OFFSET ?');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM comment WHERE comment.story == storyID) AS n_comments,channel.name AS channelName,story.author AS storyAuthor,channel.author AS channelAuthor FROM story INNER JOIN user ON user.ID == story.author INNER JOIN channel ON channel.ID == story.channel ORDER BY '.$order.' LIMIT ? OFFSET ?');
   $stmt->execute(array($limit,$offset));
   return $stmt->fetchAll();
 }
@@ -132,11 +132,18 @@ function getComment($id) {
   return $stmt->fetch();
 }
 
+function deleteComment($commentId){
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('DELETE FROM comment WHERE ID = ?');
+  $stmt->execute(array($commentId));
+}
+
 function listChannel() {
   $db = Database::instance()->db();
   $stmt = $db->prepare('SELECT * FROM channel');
   $stmt->execute();
   return $stmt->fetchAll();
 }
+
 
 ?>
