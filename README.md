@@ -6,7 +6,7 @@
 # TO DO
 - [x] upvotes/downvotes on comments
 - [ ] ability to delete a upvote/downvote
-- [ ] session token
+- [x] session token
 - [x] password salt
 - [x] check current user in actions
 - [x] javascript injection
