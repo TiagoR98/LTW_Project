@@ -8,6 +8,9 @@
         <h1><?php echo($story['title']); ?></h1>
       </header>
       <p><?php echo($story['content']); ?></p>
+      <?php if($story['image']!=NULL){ ?>
+      <img id="story_image" src="../files/storyImages/<?php echo($story['image']); ?>" alt="<?php echo($story['title']); ?>'s image">
+      <?php }?>
       <footer><?php draw_story_info($story); ?></footer>
     </article>
   </section>
@@ -18,15 +21,16 @@
   <?php $channels = listChannel(); ?>
   <section id="new_story">
     <h2>Write your story</h2>
-    <form action="../actions/action_new_story.php" method="post">
+    <form action="../actions/action_new_story.php" method="post" enctype="multipart/form-data">
       <p>Channel:
       <select name="channel" id='channelSelector'>
         <?php foreach($channels as $channel_list) { ?>
           <option value="<?php echo($channel_list['ID']); ?>"><?php echo($channel_list['name']); ?></option>
         <?php } ?>
       </select></p>
-      <input type="text" name="title" placeholder="Title">
-      <textarea name="story_input" cols="40" rows="5" placeholder="Type your story here"></textarea>
+      <input type="text" name="title" required placeholder="Title">
+      <textarea name="story_input" cols="40" rows="5" required placeholder="Type your story here"></textarea>
+      <label>Add an image: <input type="file" name="storyImage" accept="image/*"></label>
       <input type="submit" value="Post">
     </form>
   </section>
@@ -34,8 +38,9 @@
 
 <?php function draw_new_comment($story) { ?>
   <section id="new_comment">
-    <form action="../actions/action_add_comment.php?storyId=<?php echo($story['storyID']); ?>" method="post">
-      <textarea name="content" cols="40" rows="5" placeholder="Type your comment here"></textarea>
+    <form action="../actions/action_add_comment.php?storyId=<?php echo($story['storyID']); ?>" method="post" enctype="multipart/form-data">
+      <textarea name="content" cols="40" rows="5" required placeholder="Type your comment here"></textarea>
+      <label>Add an image: <input type="file" name="commentImage" accept="image/*"></label>
       <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
       <input type="submit" value="Post">
     </form>
@@ -73,6 +78,9 @@
         <a href="../pages/profile.php?userId=<?php echo($comment['author']); ?>"><?php echo($comment['username']); ?></a>
       </header>
       <p><?php echo($comment['content']); ?></p>
+      <?php if($comment['image']!=NULL){ ?>
+      <img id="comment_image" src="../files/commentImages/<?php echo($comment['image']); ?>" alt="<?php echo($comment['id']); ?>'s image">
+      <?php }?>
       <footer>
         <ul>
           <li><?php echo($comment['date']); ?></li>

@@ -1,6 +1,7 @@
 <?php
 include_once('../includes/session.php');
 include_once('../database/db_list.php');
+include_once('../actions/findexts.php');
 
 // Verify if user is logged in
   if (!isset($_SESSION['username']))
@@ -55,15 +56,6 @@ try{
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error updating profile info');
     header('Location:../pages/profile.php');
     die();
-}
-
-function findexts ($filename)
-{
-$filename = strtolower($filename) ;
-$exts = explode(".", $filename) ;
-$n = count($exts)-1;
-$exts = $exts[$n];
-return ".".$exts;
 }
 
 
