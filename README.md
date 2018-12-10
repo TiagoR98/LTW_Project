@@ -15,4 +15,4 @@
 - [x] AJAX scroll
 - [x] channel cover image
 - [ ] image size/crop
-- [ ] ability to delete a comment/story/channel
+- [x] ability to delete a comment/story/channel
