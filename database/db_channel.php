@@ -9,4 +9,11 @@ function addChannel($name,$coverImage,$author) {
 }
 
 
+
+function deleteChannel($channelId){
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('DELETE FROM channel WHERE ID = ?');
+  $stmt->execute(array($channelId));
+}
+
 ?>
