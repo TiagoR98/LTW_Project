@@ -9,10 +9,10 @@ function getStory($id) {
   return $stmt->fetch();
 }
 
-function addStory($title,$content,$author,$date,$channel) {
+function addStory($title,$content,$author,$date,$channel,$image) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('INSERT INTO story (title,content,author,date,channel) VALUES(?, ?, ?, ?, ?)');
-  $stmt->execute(array(htmlspecialchars($title),htmlspecialchars($content),htmlspecialchars($author),htmlspecialchars($date),htmlspecialchars($channel)));
+  $stmt = $db->prepare('INSERT INTO story (title,content,author,date,channel,image) VALUES(?, ?, ?, ?, ?, ?)');
+  $stmt->execute(array(htmlspecialchars($title),htmlspecialchars($content),htmlspecialchars($author),htmlspecialchars($date),htmlspecialchars($channel),htmlspecialchars($image)));
 }
 
 function addStoryVote($storyId,$username,$type){
@@ -37,10 +37,10 @@ function getVoteTypeID($type){
   return $stmt->fetch()['ID'];
 }
 
-function addComment($content,$date,$story,$author) {
+function addComment($content,$date,$story,$author,$image) {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('INSERT INTO comment (content,date,story,author) VALUES(?, ?, ?, ?)');
-  $stmt->execute(array(htmlspecialchars($content),htmlspecialchars($date),htmlspecialchars($story),htmlspecialchars($author)));
+  $stmt = $db->prepare('INSERT INTO comment (content,date,story,author,image) VALUES(?, ?, ?, ?, ?)');
+  $stmt->execute(array(htmlspecialchars($content),htmlspecialchars($date),htmlspecialchars($story),htmlspecialchars($author),htmlspecialchars($image)));
 }
 
 function addCommentVote($commentId,$username,$type){
