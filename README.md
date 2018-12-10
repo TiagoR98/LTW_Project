@@ -9,7 +9,7 @@
 - [ ] session token
 - [x] password salt
 - [x] check current user in actions
-- [ ] javascript injection
+- [x] javascript injection
 - [x] images on comments and stories
 - [x] post story to a specific channel
 - [x] AJAX scroll
