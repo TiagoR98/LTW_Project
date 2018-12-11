@@ -1,6 +1,7 @@
 body {
   font-family: Helvetica;
   background-color: #FFEAE7;
+  margin: 0;
 }
 
 .header{
@@ -15,6 +16,45 @@ body {
   text-decoration: none;
 }
 
+.header h1{
+  margin: 0.2em;
+}
+
+#options{
+  float: right;
+  height: 0;
+}
+
+.header h2{
+  margin-bottom: 0;
+}
+
+article, #story_preview {
+  background-color: white;
+  width: auto;
+  margin: 0.5em;
+}
+
+article h1{
+  margin: auto;
+}
+
+article header, #story_preview h3 {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-bottom: 1px solid #800000;
+}
+
+article header a{
+  font-weight: bold;
+  text-decoration: none;
+}
+
+article footer, #story_preview ul {
+  padding: 0;
+  border-top: 1px solid #800000;
+}
+
 #messages .error {
   background-color: red;
   color: white;
@@ -27,7 +67,8 @@ body {
 
 
 #login, #register/*, #password, #password_confirm*/ {
-  border-style: solid;
+  border-radius: 1em;
+  background-color: white;
   padding: 0em 2em 1em 2em;
   position: absolute;
   top: 50%;
@@ -36,9 +77,21 @@ body {
   transform: translate(-50%, -50%);
 }
 
-#story_preview, #comment {
-  margin-top: 2%;
-  border-style: solid;
+.header div {
+  margin-top: 1.2em;
+}
+
+.header div a{
+  list-style-type: none;
+  padding-left: 1em;
+}
+
+#order_comments {
+  display: flex;
+}
+
+#order_comments p{
+  margin: 1.3em 1em 1em 2.5em;
 }
 
 #login #error_text {
@@ -48,6 +101,7 @@ body {
 #login h1, #register h1, #password h1{
   text-align: center;
   font-size: 2.5em;
+  color: #800000;
 }
 
 /*#login input, #register input, #password input, #new_story input {
@@ -58,6 +112,14 @@ body {
 input {
   display: block;
   margin: 1em 0;
+}
+
+#comment {
+  margin-left: 2em;
+}
+
+#btnLoadComments, #btnLoadStories {
+  margin-top: 1em;
 }
 
 #profile {
@@ -93,6 +155,7 @@ input {
 
 footer{
   clear: left;
+  bottom: auto;
   padding-top: 50px;
 }
 

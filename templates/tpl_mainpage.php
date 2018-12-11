@@ -4,9 +4,11 @@
 
   <p><a href = "../pages/new_channel.php" >Create a channel</a></p>
   <?php $channels = listChannel(); ?>
+  <ul>
   <?php foreach($channels as $channel) { ?>
-    <p><a href = "../pages/channel.php?channelId=<?php echo($channel['ID']); ?>" ><?php echo($channel['name']); ?></a></p>
+    <li><a href = "../pages/channel.php?channelId=<?php echo($channel['ID']); ?>" ><?php echo($channel['name']); ?></a></li>
   <?php } ?>
+  </ul>
 
   <h2>All Stories</h2>
   <p><a href = "../pages/new_story.php" >Add a story</a></p>

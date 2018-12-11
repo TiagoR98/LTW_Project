@@ -50,14 +50,14 @@
 <?php function draw_comments($comments) { ?>
 
   <section id="comments" data-id="<?php echo $comments[0]['story'] ?>">
-  <h3>All Comments</h3>
+  <div id="order_comments"><h3>All Comments</h3>
   <p>Order By:
   <select id='orderSelector'>
     <option value="mRecent">Latest</option>
     <option value="mOld">Oldest</option>
     <option value="mUpVoted">Most Upvoted</option>
     <option value="mDownVoted">Most Downvoted</option>
-  </select></p>
+  </select></p></div>
   <script src="../js/commentOrder.js"></script>
   <section id="commentList">
   <?php foreach($comments as $comment) { ?>
