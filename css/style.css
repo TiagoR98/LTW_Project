@@ -13,6 +13,14 @@ a:hover{
   color: #800000;
 }
 
+#list_channels li:hover, #list_channels p:hover {
+  background-color: #800000;
+}
+
+#list_channels li a:hover, #list_channels p a:hover{
+  color: white;
+}
+
 .nUpVote:hover,.commentUpVote:hover{
   color: green;
 }

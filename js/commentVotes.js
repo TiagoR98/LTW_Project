@@ -6,12 +6,12 @@ let commentDownVoteButtons,commentUpVoteButtons;
 
 function updateElements(){
 commentDownVoteButtons = document.querySelectorAll('.commentDownVote');
-commentDownVoteButtons.forEach((commentDownVoteButton) => commentDownVoteButton.addEventListener('click', newDownVote));
+commentDownVoteButtons.forEach((commentDownVoteButton) => commentDownVoteButton.addEventListener('click', newCommentDownVote));
 commentUpVoteButtons = document.querySelectorAll('.commentUpVote');
-commentUpVoteButtons.forEach((commentUpVoteButton) => commentUpVoteButton.addEventListener('click', newUpVote));
+commentUpVoteButtons.forEach((commentUpVoteButton) => commentUpVoteButton.addEventListener('click', newCommentUpVote));
 }
 
-function newDownVote(event) {
+function newCommentDownVote(event) {
   let button = event.currentTarget;
   let ID = button.getAttribute('data-id');
 
@@ -33,7 +33,7 @@ function newDownVote(event) {
 }
 
 
-function newUpVote(event) {
+function newCommentUpVote(event) {
   let button = event.currentTarget;
   let ID = button.getAttribute('data-id');
 
