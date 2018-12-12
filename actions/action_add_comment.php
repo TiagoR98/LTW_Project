@@ -8,6 +8,13 @@ include_once('../actions/findexts.php');
   if (!isset($_SESSION['username']))
   die(header('Location: ../pages/login.php'));
 
+//verifica se dados vazios
+if(empty($_POST['content'])) {
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Comment cannot be empty!');
+  header('Location: ../pages/new_comment.php');
+  die();
+}
+
 $content = $_POST['content'];
 $author = getIdFromUsername($_SESSION['username']);
 $date = date("Y-m-d H:i:s");

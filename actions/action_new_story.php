@@ -8,6 +8,12 @@ include_once('../actions/findexts.php');
   if (!isset($_SESSION['username']))
   die(header('Location: ../pages/login.php'));
 
+//verifica se dados vazios
+if(empty($_POST['title']) || empty($_POST[̈́'story_input'])) {
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Title and story cannot be empty!');
+  header('Location: ../pages/new_story.php');
+  die();
+}
 
 $title = $_POST['title'];
 $content = $_POST['story_input'];
@@ -35,7 +41,7 @@ if(isset($_FILES['storyImage']['name'])){
         chmod($target_file, 0666); //permissao de escrita
       }catch(Exception $e){
           $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
-          header('Location:../pages/new_channel.php');
+          header('Location:../pages/new_story.php');
           die();
       }
   /*  }else{

@@ -29,7 +29,7 @@
   <section id="new_channel">
     <h2>Create your channel</h2>
     <form action="../actions/action_new_channel.php" method="post" enctype="multipart/form-data">
-      <input type="text" name="name" placeholder="Name">
+      <input type="text" name="name" required placeholder="Name">
       <label>Cover image: <input type="file" name="coverImage" accept="image/*"></label>
       <input type="submit" value="Create">
     </form>

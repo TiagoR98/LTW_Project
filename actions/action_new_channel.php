@@ -8,6 +8,13 @@ include_once('../actions/findexts.php');
   if (!isset($_SESSION['username']))
   die(header('Location: ../pages/login.php'));
 
+//verifica se dados vazios
+if(empty($_POST['name'])) {
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Name of channel cannot be empty!');
+  header('Location: ../pages/new_channel.php');
+  die();
+}
+
 $name = $_POST['name'];
 $author = getIdFromUsername($_SESSION['username']);
 
