@@ -2,6 +2,16 @@
 
 <?php function draw_mainpage($storyInfo) { ?>
 
+  <div id="list_channels">
+    <p><a href = "../pages/new_channel.php" >Create a channel</a></p>
+    <?php $channels = listChannel(); ?>
+    <ul>
+    <?php foreach($channels as $channel_list) { ?>
+      <li><a href = "../pages/channel.php?channelId=<?php echo($channel_list['ID']); ?>" ><?php echo($channel_list['name']); ?></a></li>
+    <?php } ?>
+    </ul>
+  </div>
+
   <div id="order_stories">
     <ul>
       <li><h2>All Stories</h2></li>
