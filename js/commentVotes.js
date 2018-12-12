@@ -12,7 +12,7 @@ commentUpVoteButtons.forEach((commentUpVoteButton) => commentUpVoteButton.addEve
 }
 
 function newDownVote(event) {
-  let button = event.target;
+  let button = event.currentTarget;
   let ID = button.getAttribute('data-id');
 
   // Ajax request
@@ -21,10 +21,10 @@ function newDownVote(event) {
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   request.addEventListener("load", function () {
     let votes = JSON.parse(this.responseText)
-    button.innerHTML = "Downvotes: " + votes.downvotes; // closure
+    button.innerHTML = "<i class=\"fas fa-thumbs-down\"></i> " + votes.downvotes; // closure
     Array.prototype.forEach.call(commentUpVoteButtons, function(upVoteButton) {
       if(upVoteButton.getAttribute('data-id')===ID)
-        upVoteButton.innerHTML = "Upvotes: " + votes.upvotes;
+        upVoteButton.innerHTML = "<i class=\"fas fa-thumbs-up\"></i>" + votes.upvotes;
       });
   })
   request.send(encodeForAjax({commentId: ID,voteType: 'downvote'}))
@@ -34,7 +34,7 @@ function newDownVote(event) {
 
 
 function newUpVote(event) {
-  let button = event.target;
+  let button = event.currentTarget;
   let ID = button.getAttribute('data-id');
 
   // Ajax request
@@ -43,10 +43,10 @@ function newUpVote(event) {
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   request.addEventListener("load", function () {
     let votes = JSON.parse(this.responseText)
-    button.innerHTML = "Upvotes: " + votes.upvotes; // closure
+    button.innerHTML = "<i class=\"fas fa-thumbs-up\"></i>" + votes.upvotes; // closure
     Array.prototype.forEach.call(commentDownVoteButtons, function(downVoteButton) {
       if(downVoteButton.getAttribute('data-id')===ID)
-        downVoteButton.innerHTML = "Downvotes: " + votes.downvotes;
+        downVoteButton.innerHTML = "<i class=\"fas fa-thumbs-down\"></i> " + votes.downvotes;
       });
   })
   request.send(encodeForAjax({commentId: ID,voteType: 'upvote'}))

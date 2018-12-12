@@ -28,8 +28,8 @@
           <option value="<?php echo($channel_list['ID']); ?>"><?php echo($channel_list['name']); ?></option>
         <?php } ?>
       </select></p>
-      <input type="text" name="title" required placeholder="Title">
-      <textarea name="story_input" cols="40" rows="5" required placeholder="Type your story here"></textarea>
+      <input id="title" type="text" name="title" required placeholder="Title">
+      <textarea id="story_input" name="story_input" cols="40" rows="5" required placeholder="Type your story here"></textarea>
       <label>Add an image: <input type="file" name="storyImage" accept="image/*"></label>
       <input type="submit" value="Post">
     </form>
@@ -39,7 +39,7 @@
 <?php function draw_new_comment($story) { ?>
   <section id="new_comment">
     <form action="../actions/action_add_comment.php?storyId=<?php echo($story['storyID']); ?>" method="post" enctype="multipart/form-data">
-      <textarea name="content" cols="40" rows="5" required placeholder="Type your comment here"></textarea>
+      <textarea id="content" name="content" cols="40" rows="5" required placeholder="Type your comment here"></textarea>
       <label>Add an image: <input type="file" name="commentImage" accept="image/*"></label>
       <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
       <input type="submit" value="Post">
@@ -83,11 +83,11 @@
       <?php }?>
       <footer>
         <ul>
-          <li><?php echo($comment['date']); ?></li>
-          <li class="commentUpVote" data-id="<?php echo($comment['comID']); ?>">Upvotes: <?php echo($comment['upvotes']); ?></li>
-          <li class="commentDownVote" data-id="<?php echo($comment['comID']); ?>">Downvotes: <?php echo($comment['downvotes']); ?></li>
+          <li><i class="fas fa-calendar-alt"></i> <?php echo($comment['date']); ?></li>
+          <li class="commentUpVote" data-id="<?php echo($comment['comID']); ?>"><i class="fas fa-thumbs-up"></i> <?php echo($comment['upvotes']); ?></li>
+          <li class="commentDownVote" data-id="<?php echo($comment['comID']); ?>"><i class="fas fa-thumbs-down"></i> <?php echo($comment['downvotes']); ?></li>
           <?php if($comment['username'] == $_SESSION['username']) { ?>
-            <li><a href="../actions/action_delete_comment.php?commentId=<?php echo($comment['comID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"> Delete Comment</a></li>
+            <li><a href="../actions/action_delete_comment.php?commentId=<?php echo($comment['comID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"><i class="fas fa-trash-alt"></i> Delete Comment</a></li>
           <?php } ?>
         </ul>
       </footer>
@@ -96,7 +96,7 @@
 <?php } ?>
 
 <?php function draw_story_list($storyInfo) { ?>
-  <p>Order By:
+  <p id="order">Order By:
   <select id='orderSelector'>
     <option value="mRecent">Latest</option>
     <option value="mOld">Oldest</option>
@@ -105,6 +105,7 @@
     <option value="mComments">Most Commented</option>
   </select></p>
   <script src="../js/order.js"></script>
+ </div>
 
   <section id="storyList">
   <?php foreach($storyInfo as $story) { ?>

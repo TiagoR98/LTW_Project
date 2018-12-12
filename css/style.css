@@ -1,7 +1,24 @@
 body {
-  font-family: Helvetica;
-  background-color: #FFEAE7;
+  font-family: IBMPlexSans, Helvetica Neue, Segoe UI, Helvetica, Verdana, Arial, sans-serif;
+  background-color: #D5E2EB;
   margin: 0;
+}
+
+a:link, a:visited{
+  color: black;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #800000;
+}
+
+.nUpVote:hover,.commentUpVote:hover{
+  color: green;
+}
+
+.nDownVote:hover,.commentDownVote:hover{
+  color: red;
 }
 
 .header{
@@ -13,11 +30,21 @@ body {
 .header a{
   color: white;
   font-family: Helvetica;
-  text-decoration: none;
 }
 
 .header h1{
   margin: 0.2em;
+}
+
+#list_channels{
+  background-color: white;
+  position: relative;
+}
+
+#list_channels p{
+  float: right;
+  margin: 0;
+  padding: 0.5em;
 }
 
 #options{
@@ -31,8 +58,9 @@ body {
 
 article, #story_preview {
   background-color: white;
-  width: auto;
-  margin: 0.5em;
+  width: 60%;
+  margin: auto;
+  border-radius: 1em;
 }
 
 article h1{
@@ -45,9 +73,8 @@ article header, #story_preview h3 {
   border-bottom: 1px solid #800000;
 }
 
-article header a{
+article header a, #story_preview h3 a{
   font-weight: bold;
-  text-decoration: none;
 }
 
 article footer, #story_preview ul {
@@ -66,7 +93,7 @@ article footer, #story_preview ul {
 }
 
 
-#login, #register/*, #password, #password_confirm*/ {
+#login, #register {
   border-radius: 1em;
   background-color: white;
   padding: 0em 2em 1em 2em;
@@ -86,8 +113,28 @@ article footer, #story_preview ul {
   padding-left: 1em;
 }
 
+/*#order_stories ul{
+  float: left;
+}*/
+
+/*#all_add{
+  display: flex;
+}*/
+
+#addStory{
+  margin-top: 1.6em;
+  padding-left: 2em;
+}
+
+#order_stories #order {
+  float: right;
+  margin: 0;
+  position: relative;
+}
+
 #order_comments {
   display: flex;
+  margin-left: 20%;
 }
 
 #order_comments p{
@@ -98,10 +145,41 @@ article footer, #story_preview ul {
   color: red;
 }
 
-#login h1, #register h1, #password h1{
+#login h1, #register h1, #recover_password h1{
   text-align: center;
   font-size: 2.5em;
   color: #800000;
+}
+
+#title{
+  width: 100%;
+  border-radius: 0.5em;
+  border-style:
+}
+
+#story_input{
+  border-radius: 1em;
+  width: 100%;
+  height: 20em;
+  resize: none;
+}
+
+#content{
+  border-radius: 1em;
+  width: 100%;
+  resize: none;
+}
+
+#new_comment {
+  width: 60%;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#new_story {
+  width: 60%;
+  margin: auto;
 }
 
 /*#login input, #register input, #password input, #new_story input {
@@ -114,12 +192,11 @@ input {
   margin: 1em 0;
 }
 
-#comment {
-  margin-left: 2em;
-}
 
 #btnLoadComments, #btnLoadStories {
   margin-top: 1em;
+  margin-left: 20%;
+  border-radius: 0.5em;
 }
 
 #profile {
@@ -170,7 +247,7 @@ ul{
 li {
   text-align: center;
   list-style-type: none;
-  padding: 1em;
+  padding: 0.5em;
 }
 
 #register #confPasswordError{

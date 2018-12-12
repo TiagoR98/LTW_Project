@@ -8,8 +8,7 @@
       <input type="password" name="password" placeholder="Password">
       <input type="submit" value="Login">
     </form>
-    <p><a href="password.php">Forgot your password?</a></p>
-    <p>Don't have an account?<a href="register.php">Register Now</a></p>
+    <p>Don't have an account? <a href="register.php">Register Now</a></p>
   </section>
 
 <?php } ?>
@@ -28,7 +27,7 @@
       <input type="date" name="birth" placeholder="Birth Date" value="<?php echo(date("Y-m-d H:i:s")); ?>" required>
       <input type="submit" id="submitRegister" value="Register">
     </form>
-    <p>Already have an account?<a href="login.php">Login</a></p>
+    <p>Already have an account? <a href="login.php">Login</a></p>
   </section>
 
 <?php }  ?>

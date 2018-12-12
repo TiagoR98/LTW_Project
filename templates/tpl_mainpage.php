@@ -2,16 +2,11 @@
 
 <?php function draw_mainpage($storyInfo) { ?>
 
-  <p><a href = "../pages/new_channel.php" >Create a channel</a></p>
-  <?php $channels = listChannel(); ?>
-  <ul>
-  <?php foreach($channels as $channel) { ?>
-    <li><a href = "../pages/channel.php?channelId=<?php echo($channel['ID']); ?>" ><?php echo($channel['name']); ?></a></li>
-  <?php } ?>
-  </ul>
-
-  <h2>All Stories</h2>
-  <p><a href = "../pages/new_story.php" >Add a story</a></p>
+  <div id="order_stories">
+    <ul>
+      <li><h2>All Stories</h2></li>
+      <li><p id="addStory"><a href = "../pages/new_story.php" >Add a story</a></p></li>
+    </ul>
 
   <?php draw_story_list($storyInfo); ?>
 
@@ -28,15 +23,15 @@
 
 <?php function draw_story_info($story) { ?>
   <ul>
-    <li><a href="../pages/profile.php?userId=<?php echo($story['storyAuthor']); ?>"><?php echo($story['username']); ?></a></li>
-    <li>Channel:<a href="../pages/channel.php?channelId=<?php echo($story['channel']); ?>"><?php echo($story['channelName']); ?></a></li>
-    <li><?php echo($story['date']); ?></li>
-    <li class="nUpVote" data-id="<?php echo($story['storyID']); ?>">Upvotes: <?php echo($story['upvotes']); ?></li>
-    <li class="nDownVote" data-id="<?php echo($story['storyID']); ?>">Downvotes: <?php echo($story['downvotes']); ?></li>
-    <li><?php echo($story['n_comments']); ?> Comments</li>
-    <li><a href="../pages/new_comment.php?storyId=<?php echo($story['storyID']); ?>"> Write a comment</a></li>
+    <li><a href="../pages/profile.php?userId=<?php echo($story['storyAuthor']); ?>"><i class="fas fa-user"></i> <?php echo($story['username']); ?></a></li>
+    <li><a href="../pages/channel.php?channelId=<?php echo($story['channel']); ?>"><i class="fas fa-book"></i> <?php echo($story['channelName']); ?></a></li>
+    <li><i class="fas fa-calendar-alt"></i> <?php echo($story['date']); ?></li>
+    <li class="nUpVote" data-id="<?php echo($story['storyID']); ?>"><i class="fas fa-thumbs-up"></i> <?php echo($story['upvotes']); ?></li>
+    <li class="nDownVote" data-id="<?php echo($story['storyID']); ?>"><i class="fas fa-thumbs-down"></i> <?php echo($story['downvotes']); ?></li>
+    <li><?php echo($story['n_comments']); ?> <i class="fas fa-comment-dots"></i></li>
+    <li><a href="../pages/new_comment.php?storyId=<?php echo($story['storyID']); ?>"><i class="fas fa-pencil-alt"></i> Write a comment</a></li>
     <?php if($story['username'] == $_SESSION['username']) { ?>
-      <li><a href="../actions/action_delete_story.php?storyId=<?php echo($story['storyID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"> Delete Story</a></li>
+      <li><a href="../actions/action_delete_story.php?storyId=<?php echo($story['storyID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"><i class="fas fa-trash-alt"></i> Delete Story</a></li>
     <?php } ?>
   </ul>
 <?php } ?>
