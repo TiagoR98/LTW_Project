@@ -24,7 +24,7 @@ function newCommentDownVote(event) {
     button.innerHTML = "<i class=\"fas fa-thumbs-down\"></i> " + votes.downvotes; // closure
     Array.prototype.forEach.call(commentUpVoteButtons, function(upVoteButton) {
       if(upVoteButton.getAttribute('data-id')===ID)
-        upVoteButton.innerHTML = "<i class=\"fas fa-thumbs-up\"></i>" + votes.upvotes;
+        upVoteButton.innerHTML = "<i class=\"fas fa-thumbs-up\"></i> " + votes.upvotes;
       });
   })
   request.send(encodeForAjax({commentId: ID,voteType: 'downvote'}))
@@ -43,7 +43,7 @@ function newCommentUpVote(event) {
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   request.addEventListener("load", function () {
     let votes = JSON.parse(this.responseText)
-    button.innerHTML = "<i class=\"fas fa-thumbs-up\"></i>" + votes.upvotes; // closure
+    button.innerHTML = "<i class=\"fas fa-thumbs-up\"></i> " + votes.upvotes; // closure
     Array.prototype.forEach.call(commentDownVoteButtons, function(downVoteButton) {
       if(downVoteButton.getAttribute('data-id')===ID)
         downVoteButton.innerHTML = "<i class=\"fas fa-thumbs-down\"></i> " + votes.downvotes;

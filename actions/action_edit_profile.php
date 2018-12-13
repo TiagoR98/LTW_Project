@@ -39,13 +39,32 @@ if(($_FILES['profilePic']['error']==0)){
   $small = imagecreatetruecolor(300, 300);
   imagecopyresized($small, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 300, 300, $square, $square);
   imagejpeg($small, $smallFileName);
-  unlink("../files/croppedProfile/".$oldPic); //elimina a imagem antiga
-  move_uploaded_file($_FILES["profilePic"]["tmp_name"], $smallFileName);
-  chmod($smallFileName, 0666);
+
+  try{
+    unlink("../files/croppedProfile/".$oldPic); //elimina a imagem antiga
+    move_uploaded_file($_FILES["profilePic"]["tmp_name"], $smallFileName);
+    chmod($smallFileName, 0666);
+  }catch(Exception $e){
+      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
+      header('Location:../pages/profile.php');
+      die();
+  }
 
 }else if(isset($_POST['email']) && !empty($_POST['email'])){
+  //verifica caracteres especiais email
+  if ( !preg_match ("/^[a-zA-Z0-9@.]+$/", $_POST['email'])) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Email contains invalid characters');
+    header('Location: ../pages/profile.php');
+    die();
+  }
   $userInfo['email'] = $_POST['email'];
 }else if(isset($_POST['birth']) && !empty($_POST['birth'])){
+  //verifica caracteres especiais data
+  if ( !preg_match ("/^[0-9-]+$/", $_POST['birth'])) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Birthdate contains invalid characters');
+    header('Location: ../pages/profile.php');
+    die();
+  }
   $userInfo['birth'] = $_POST['birth'];
 }else{
   $_SESSION['messages'][] = array('type' => 'error', 'content' => 'No data to update!');

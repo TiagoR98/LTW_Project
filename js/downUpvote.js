@@ -24,7 +24,7 @@ function newDownVote(event) {
     button.innerHTML = "<i class=\"fas fa-thumbs-down\"></i> " + votes.downvotes; // closure
     Array.prototype.forEach.call(upVoteButtons, function(upVoteButton) {
       if(upVoteButton.getAttribute('data-id')===storyId)
-        upVoteButton.innerHTML = "<i class=\"fas fa-thumbs-up\"></i>" + votes.upvotes;
+        upVoteButton.innerHTML = "<i class=\"fas fa-thumbs-up\"></i> " + votes.upvotes;
       });
   })
   request.send(encodeForAjax({storyId: storyId,voteType: 'downvote'}))
@@ -43,7 +43,7 @@ function newUpVote(event) {
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   request.addEventListener("load", function () {
     let votes = JSON.parse(this.responseText)
-    button.innerHTML = "<i class=\"fas fa-thumbs-up\"></i>" + votes.upvotes; // closure
+    button.innerHTML = "<i class=\"fas fa-thumbs-up\"></i> " + votes.upvotes; // closure
     Array.prototype.forEach.call(downVoteButtons, function(downVoteButton) {
       if(downVoteButton.getAttribute('data-id')===storyId)
         downVoteButton.innerHTML = "<i class=\"fas fa-thumbs-down\"></i> " + votes.downvotes;

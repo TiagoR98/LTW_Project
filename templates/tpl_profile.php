@@ -46,5 +46,4 @@
     <h1>My Stories</h1>
       <?php draw_story_list($stories); ?>
   </section>
-  <script src="../js/downUpvote.js"></script>
 <?php } ?>

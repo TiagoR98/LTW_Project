@@ -23,7 +23,6 @@ if(empty($_POST['content'])) {
 if(isset($_FILES['commentImage']['name'])){
   if(($_FILES['commentImage']['error']==0)){
 
-    /*$commentImage = $_FILES["commentImage"]["name"];*/
     $extension =  findexts($_FILES["commentImage"]["name"]);
 
     $commentImage=uniqid().$extension;
@@ -32,6 +31,9 @@ if(isset($_FILES['commentImage']['name'])){
 
     //verificar se e uma imagem
     $check = getimagesize($_FILES["commentImage"]["tmp_name"]);
+
+    move_uploaded_file($_FILES["commentImage"]["tmp_name"], $target_file);
+    chmod($target_file, 0666);
 
     // Crete an image representation of the original image
     $original = imagecreatefromstring(file_get_contents($target_file));
@@ -42,14 +44,22 @@ if(isset($_FILES['commentImage']['name'])){
     // Calculate width and height of medium sized image (max width: 500)
     $mediumwidth = $width;
     $mediumheight = $height;
-    if ($mediumwidth > 500) {
-      $mediumwidth = 500;
-      $mediumheight = $mediumheight * ( $mediumwidth / $width );
+    $maxSize = max($width,$height);
+
+    if ($maxSize > 500) {
+      if ($mediumwidth == $maxSize) {
+        $mediumwidth = 500;
+        $mediumheight = $mediumheight * ( $mediumwidth / $width );
+      }
+      else if ($mediumheight == $maxSize) {
+        $mediumheight = 500;
+        $mediumwidth = $mediumwidth * ( $mediumheight / $height );
+      }
     }
 
     // Create and save a medium image
     $medium = imagecreatetruecolor($mediumwidth, $mediumheight);
-    imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $mediumwidth, $mediumheight);
+    imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
     imagejpeg($medium, $target_file);
 
     try{
