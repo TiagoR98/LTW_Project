@@ -23,7 +23,7 @@ if(empty($_POST['content'])) {
 if(isset($_FILES['commentImage']['name'])){
   if(($_FILES['commentImage']['error']==0)){
 
-    $commentImage = $_FILES["commentImage"]["name"];
+    /*$commentImage = $_FILES["commentImage"]["name"];*/
     $extension =  findexts($_FILES["commentImage"]["name"]);
 
     $commentImage=uniqid().$extension;
@@ -32,22 +32,34 @@ if(isset($_FILES['commentImage']['name'])){
 
     //verificar se e uma imagem
     $check = getimagesize($_FILES["commentImage"]["tmp_name"]);
-    //$max_image_size = 1000;
 
-  //  if($check !== false && $check[1]<=$max_image_size && $check[2]<=$max_image_size) {
-      try{
-        move_uploaded_file($_FILES["commentImage"]["tmp_name"], $target_file);
-        chmod($target_file, 0666); //permissao de escrita
-      }catch(Exception $e){
-          $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
-          header('Location:../pages/new_channel.php');
-          die();
-      }
-  /*  }else{
-      $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Image larger than '.$max_image_size.'X'.$max_image_size.'px');
-      header('Location:../pages/new_channel.php');
-      die();
-    }*/
+    // Crete an image representation of the original image
+    $original = imagecreatefromstring(file_get_contents($target_file));
+
+    $width = imagesx($original);     // width of the original image
+    $height = imagesy($original);    // height of the original image
+
+    // Calculate width and height of medium sized image (max width: 500)
+    $mediumwidth = $width;
+    $mediumheight = $height;
+    if ($mediumwidth > 500) {
+      $mediumwidth = 500;
+      $mediumheight = $mediumheight * ( $mediumwidth / $width );
+    }
+
+    // Create and save a medium image
+    $medium = imagecreatetruecolor($mediumwidth, $mediumheight);
+    imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $mediumwidth, $mediumheight);
+    imagejpeg($medium, $target_file);
+
+    try{
+      move_uploaded_file($_FILES["commentImage"]["tmp_name"], $target_file);
+      chmod($target_file, 0666); //permissao de escrita
+    }catch(Exception $e){
+        $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
+        header('Location:../pages/new_channel.php');
+        die();
+    }
 
   }
 } else {

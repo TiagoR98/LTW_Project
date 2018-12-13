@@ -6,7 +6,7 @@
   <?php } ?>
 
   <section id="profile">
-    <img id="profile_pic" src="../files/profilePics/<?php if($userInfo['profilePic']!="") { echo($userInfo['profilePic']); } else {?>default.png<?php } ?>" alt="<?php echo($userInfo['username']); ?>'s profile picture">
+    <img id="profile_pic" src="../files/croppedProfile/<?php if($userInfo['profilePic']!="") { echo($userInfo['profilePic']); } else {?>default.png<?php } ?>" alt="<?php echo($userInfo['username']); ?>'s profile picture">
 
     <div id="profile_info">
       <h2>Username: </h2>

@@ -22,23 +22,26 @@ if(($_FILES['profilePic']['error']==0)){
 
   //verificar se e uma imagem
   $check = getimagesize($_FILES["profilePic"]["tmp_name"]);
-  $max_image_size = 1000;
 
-  if($check !== false && $check[1]<=$max_image_size && $check[2]<=$max_image_size) {
-    try{
-      unlink($target_dir.$oldPic); //elimina a imagem antiga
-      move_uploaded_file($_FILES["profilePic"]["tmp_name"], $target_file);
-      chmod($target_file, 0666); //permissao de escrita
-    }catch(Exception $e){
-        $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
-        header('Location:../pages/profile.php');
-        die();
-    }
-  }else{
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Image larger than '.$max_image_size.'X'.$max_image_size.'px');
-    header('Location:../pages/profile.php');
-    die();
-  }
+  $smallFileName = "../files/croppedProfile/" . $userInfo['profilePic'];
+  unlink($target_dir.$oldPic); //elimina a imagem antiga
+  move_uploaded_file($_FILES["profilePic"]["tmp_name"], $target_file);
+  chmod($target_file, 0666);
+
+  // Crete an image representation of the original image
+  $original = imagecreatefromstring(file_get_contents($target_file));
+
+  $width = imagesx($original);     // width of the original image
+  $height = imagesy($original);    // height of the original image
+  $square = min($width, $height);  // size length of the maximum square
+
+  // Create and save a small square thumbnail
+  $small = imagecreatetruecolor(300, 300);
+  imagecopyresized($small, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 300, 300, $square, $square);
+  imagejpeg($small, $smallFileName);
+  unlink("../files/croppedProfile/".$oldPic); //elimina a imagem antiga
+  move_uploaded_file($_FILES["profilePic"]["tmp_name"], $smallFileName);
+  chmod($smallFileName, 0666);
 
 }else if(isset($_POST['email']) && !empty($_POST['email'])){
   $userInfo['email'] = $_POST['email'];
