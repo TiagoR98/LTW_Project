@@ -278,6 +278,7 @@ footer{
   clear: left;
   bottom: auto;
   padding-top: 50px;
+  position: absolute;
 }
 
 #register #confPasswordError{

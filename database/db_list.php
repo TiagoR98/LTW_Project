@@ -140,7 +140,7 @@ function deleteComment($commentId){
 
 function listChannel() {
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT * FROM channel');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM story WHERE story.channel == channel.ID) AS n_stories FROM channel ORDER BY n_stories DESC');
   $stmt->execute();
   return $stmt->fetchAll();
 }
