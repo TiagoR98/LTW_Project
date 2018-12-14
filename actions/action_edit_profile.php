@@ -37,6 +37,8 @@ if(($_FILES['profilePic']['error']==0)){
 
   // Create and save a small square thumbnail
   $small = imagecreatetruecolor(300, 300);
+  $white = imagecolorallocate($small, 255, 255, 255);
+  imagefill($small, 0, 0, $white);
   imagecopyresized($small, $original, 0, 0, ($width>$square)?($width-$square)/2:0, ($height>$square)?($height-$square)/2:0, 300, 300, $square, $square);
   imagejpeg($small, $smallFileName);
 

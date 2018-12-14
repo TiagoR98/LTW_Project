@@ -41,9 +41,13 @@
 
 <?php } ?>
 
-<?php function draw_user_stories($stories) { ?>
+<?php function draw_user_stories($username, $stories) { ?>
   <section id="myStories" data-id="<?php echo $stories[0]['author'] ?>">
-    <h1>My Stories</h1>
+      <?php if($username == $_SESSION['username']) { ?>
+        <h1>My Stories</h1>
+      <?php } else { ?>
+        <h1><?php echo $username; ?>'s Stories</h1>
+      <?php } ?>
       <?php draw_story_list($stories); ?>
   </section>
 <?php } ?>

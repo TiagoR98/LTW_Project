@@ -21,6 +21,6 @@
   $userInfo['stories']=getStoriesByUser($userInfo['username']);
 
   draw_profile($userInfo);
-  draw_user_stories($userInfo['stories']);
+  draw_user_stories($userInfo['username'], $userInfo['stories']);
   draw_footer();
 ?>
