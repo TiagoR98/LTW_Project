@@ -8,9 +8,7 @@ include_once('../database/db_channel.php');
   if (!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
 
-    $channels = listChannel();
-
-    $channel = $channels[$_GET['channelId']-1];
+    $channel = getChannel($_GET['channelId']);
 
 if((getIdFromUsername($_SESSION['username']) !== $channel['author']) || ($_GET['csrf'] !== $_SESSION['csrf'])){
   $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Invalid Request');

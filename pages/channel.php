@@ -12,9 +12,9 @@
 
   draw_header(); //alterar header
 
-  $channel = getStoriesByChannel($_GET['channelId']);
+  $storiesByChannel = getStoriesByChannel($_GET['channelId']);
 
-  draw_channel($channel);
+  draw_channel($storiesByChannel);
 
   draw_footer();
 ?>

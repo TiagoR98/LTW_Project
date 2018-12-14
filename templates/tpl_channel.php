@@ -1,6 +1,7 @@
 <?php include_once('../templates/tpl_mainpage.php'); ?>
+<?php include_once('../database/db_channel.php'); ?>
 
-<?php function draw_channel($channel) { ?>
+<?php function draw_channel($storiesByChannel) { ?>
 
   <div id="list_channels">
     <p><a href = "../pages/new_channel.php" >Create a channel</a></p>
@@ -12,18 +13,19 @@
     </ul>
   </div>
 
-  <div id="cover"><img id="cover_image" src="../files/croppedCover/<?php if($channels[$_GET['channelId']-1]['coverImage']!="") { echo($channels[$_GET['channelId']-1]['coverImage']); } else {?>default.png<?php } ?>"
-    alt="<?php echo($channels[$_GET['channelId']-1]['name']); ?>'s cover image"></div>
-  <h1><?php echo($channels[$_GET['channelId']-1]['name']); ?></h1>
-  <?php if($channels[$_GET['channelId']-1]['author'] == getIdFromUsername($_SESSION['username'])) { ?>
-    <a href="../actions/action_delete_channel.php?channelId=<?php echo($channels[$_GET['channelId']-1]['ID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"> Delete Channel</a>
+  <?php $currentChannel = getChannel($_GET['channelId']); ?>
+  <div id="cover"><img id="cover_image" src="../files/croppedCover/<?php if($currentChannel['coverImage']!="") { echo($currentChannel['coverImage']); } else {?>default.png<?php } ?>"
+    alt="<?php echo($currentChannel['name']); ?>'s cover image"></div>
+  <h1><?php echo($currentChannel['name']); ?></h1>
+  <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
+    <a href="../actions/action_delete_channel.php?channelId=<?php echo($currentChannel['ID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"> Delete Channel</a>
   <?php } ?>
-  <section id="channelStories" data-id="<?php echo $channel[0]['channel'] ?>">
-  <h2>All Stories</h2>
-  <p><a href = "../pages/new_story.php?channelId=<?php echo($_GET['channelId']); ?>" >Add a story</a></p>
+  <section id="channelStories" data-id="<?php echo $_GET['channelId'] ?>">
+    <h2>All Stories</h2>
+    <p><a href = "../pages/new_story.php?channelId=<?php echo($_GET['channelId']); ?>" >Add a story</a></p>
 
-  <?php draw_story_list($channel); ?>
-</section>
+    <?php draw_story_list($storiesByChannel); ?>
+  </section>
 <?php } ?>
 
 <?php function draw_new_channel() { ?>
