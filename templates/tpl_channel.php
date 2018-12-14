@@ -40,6 +40,15 @@
     </h3>
   <?php } ?>
 
+
+  <?php if($channels[$_GET['channelId']-1]['author'] == getIdFromUsername($_SESSION['username'])) { ?>
+ <input id="browser-width" type="hidden" name="browser-width" value="">
+  </form>
+  <script>
+  document.getElementById('browser-width').value = screen.width;
+  </script>
+  <?php } ?>
+
   <section id="channelStories" data-id="<?php echo $_GET['channelId'] ?>">
     <h2>All Stories</h2>
     <p><a href = "../pages/new_story.php?channelId=<?php echo($_GET['channelId']); ?>" >Add a story</a></p>
@@ -47,13 +56,6 @@
     <?php draw_story_list($storiesByChannel); ?>
   </section>
 
- <?php if($channels[$_GET['channelId']-1]['author'] == getIdFromUsername($_SESSION['username'])) { ?>
-<input id="browser-width" type="hidden" name="browser-width" value="">
- </form>
- <script>
- document.getElementById('browser-width').value = screen.width;
- </script>
- <?php } ?>
 
 <?php } ?>
 
