@@ -38,7 +38,7 @@
     <li><i class="fas fa-calendar-alt"></i> <?php echo($story['date']); ?></li>
     <li class="nUpVote" data-id="<?php echo($story['storyID']); ?>"><i class="fas fa-thumbs-up"></i> <?php echo($story['upvotes']); ?></li>
     <li class="nDownVote" data-id="<?php echo($story['storyID']); ?>"><i class="fas fa-thumbs-down"></i> <?php echo($story['downvotes']); ?></li>
-    <li><?php echo($story['n_comments']); ?> <i class="fas fa-comment-dots"></i></li>
+    <li><i class="fas fa-comment-dots"></i> <?php echo($story['n_comments']); ?></li>
     <li><a href="../pages/new_comment.php?storyId=<?php echo($story['storyID']); ?>"><i class="fas fa-pencil-alt"></i> Write a comment</a></li>
     <?php if($story['username'] == $_SESSION['username']) { ?>
       <li><a href="../actions/action_delete_story.php?storyId=<?php echo($story['storyID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"><i class="fas fa-trash-alt"></i> Delete Story</a></li>
