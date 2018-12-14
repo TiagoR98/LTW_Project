@@ -58,23 +58,11 @@ if(($_FILES['profilePic']['error']==0)){
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Email contains invalid characters');
     header('Location: ../pages/profile.php');
     die();
-  }$_SESSION['messages'][] = array('type' => 'error', 'content' => 'Birthdate contains invalid characters');
-    header('Location: ../pages/profile.php');
-    die();
+  }
   $userInfo['email'] = $_POST['email'];
 }else if(isset($_POST['birth']) && !empty($_POST['birth'])){
   //verifica caracteres especiais data
-  if ( !preg_//verifica caracteres especiais email
-  if ( !preg_match ("/^[a-zA-Z0-9@.]+$/", $_POST['email'])) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Email contains invalid characters');
-    header('Location: ../pages/profile.php');
-    die();
-  }//verifica caracteres especiais email
-  if ( !preg_match ("/^[a-zA-Z0-9@.]+$/", $_POST['email'])) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Email contains invalid characters');
-    header('Location: ../pages/profile.php');
-    die();
-  }match ("/^[0-9-]+$/", $_POST['birth'])) {
+  if ( !preg_match ("/^[0-9-]+$/", $_POST['birth'])) {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Birthdate contains invalid characters');
     header('Location: ../pages/profile.php');
     die();

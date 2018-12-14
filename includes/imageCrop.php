@@ -1,6 +1,7 @@
 <?php
 function cropCoverImage(){
 
+
   if(($_FILES['coverImage']['error']==0)){
 
     $extension =  findexts($_FILES["coverImage"]["name"]);
@@ -51,12 +52,11 @@ function cropCoverImage(){
       chmod($newFileName, 0666); //permissao de escrita
     }catch(Exception $e){
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
-        header('Location:../pages/new_channel.php');
+        header('Location:../pages/mainpage.php');
         die();
     }
 
   }
-
   return $coverImage;
 }
 ?>

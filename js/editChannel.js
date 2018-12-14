@@ -3,7 +3,7 @@ function edit(field) {
   switch (field) {
     case "name":
       var form = "<input type=text name='name' placeholder='Channel Name'>";
-      document.getElementById("channelName").innerHTML += form+submitButton;
+      document.getElementById("channelName").innerHTML = form+submitButton;
       break;
     default:
   }
