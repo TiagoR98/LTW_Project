@@ -10,9 +10,8 @@
     die(header('Location: ../pages/login.php'));
 
 
-  draw_header($_SESSION['username']);
-
   $story = getStory($_GET['storyId']);
+  draw_header("Write new comment");
   draw_story($story);
 
   draw_new_comment($story);

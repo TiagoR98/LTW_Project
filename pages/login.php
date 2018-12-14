@@ -7,7 +7,7 @@
   if (isset($_SESSION['username'])){
     header('Location:../pages/mainpage.php');
   }
-  draw_header();
+  draw_header("Login");
   draw_login();
   draw_footer();
 ?>
