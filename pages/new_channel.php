@@ -7,7 +7,7 @@
     if (!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
 
-  draw_header($_SESSION['username']);
+  draw_header("Create new channel");
 
   draw_new_channel();
 

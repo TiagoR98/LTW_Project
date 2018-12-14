@@ -7,7 +7,7 @@
     header('Location:../pages/mainpage.php');
   }
 
-  draw_header();
+  draw_header("Register new account");
   draw_register();
   draw_footer();
 ?>

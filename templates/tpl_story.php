@@ -49,7 +49,7 @@
 
 <?php function draw_comments($comments) { ?>
 
-  <section id="comments" data-id="<?php echo $comments[0]['story'] ?>">
+  <section id="comments" data-id="<?php if(!empty(comments)) echo($comments[0]['story']); ?>">
   <div id="order_comments"><h3>All Comments</h3>
   <p>Order By:
   <select id='orderSelector'>

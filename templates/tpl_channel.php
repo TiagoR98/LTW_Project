@@ -1,7 +1,7 @@
 <?php include_once('../templates/tpl_mainpage.php'); ?>
 <?php include_once('../database/db_channel.php'); ?>
 
-<?php function draw_channel($storiesByChannel) { ?>
+<?php function draw_channel($storiesByChannel,$currentChannel) { ?>
 
   <div id="list_channels">
     <p><a href = "../pages/new_channel.php" >Create a channel</a></p>
@@ -13,7 +13,6 @@
     </ul>
   </div>
 
-  <?php $currentChannel = getChannel($_GET['channelId']); ?>
 
   <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
   <script src="../js/editChannel.js"></script>

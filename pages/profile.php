@@ -7,7 +7,7 @@
   include_once('../templates/tpl_mainpage.php');
 
   if (isset($_SESSION['username'])){
-    draw_header();
+    draw_header($_SESSION['username']."'s Profile");
   }else {
     header('Location: login.php');
     die();

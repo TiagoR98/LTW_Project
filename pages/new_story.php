@@ -8,7 +8,7 @@
     die(header('Location: ../pages/login.php'));
 
 
-  draw_header($_SESSION['username']);
+  draw_header("Write your story");
 
   draw_new_story();
 

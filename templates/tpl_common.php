@@ -1,9 +1,9 @@
-<?php function draw_header(){
+<?php function draw_header($tabText = ""){
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>channelOmania</title>
+    <title><?php if($tabText != ""){echo($tabText." - ");}  ?>channelOmania</title>
     <meta charset="UTF-8">
     <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">

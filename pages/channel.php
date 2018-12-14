@@ -13,11 +13,11 @@
     die(header('Location: ../pages/mainpage.php'));
 
 
-  draw_header(); //alterar header
-
   $storiesByChannel = getStoriesByChannel($_GET['channelId']);
+  $currentChannel = getChannel($_GET['channelId']);
 
-  draw_channel($storiesByChannel);
+  draw_header($currentChannel['name']); 
+  draw_channel($storiesByChannel,$currentChannel);
 
   draw_footer();
 ?>
