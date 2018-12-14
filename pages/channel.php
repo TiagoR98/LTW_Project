@@ -9,6 +9,9 @@
     if (!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
 
+    if (!isset($_GET['channelId']))
+    die(header('Location: ../pages/mainpage.php'));
+
 
   draw_header(); //alterar header
 

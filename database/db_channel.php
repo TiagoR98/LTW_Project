@@ -21,4 +21,12 @@ function deleteChannel($channelId){
   $stmt->execute(array($channelId));
 }
 
+function updateChannel($channelInfo) {
+  $db = Database::instance()->db();
+  $sql = "UPDATE channel SET coverImage= ?,name=? WHERE ID= ?";
+  $stmt = $db->prepare($sql);
+  $stmt->execute([$channelInfo['coverImage'],htmlspecialchars($channelInfo['name']),$channelInfo['ID']]);
+  return $stmt->fetch();
+}
+
 ?>
