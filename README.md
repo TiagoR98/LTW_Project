@@ -14,5 +14,5 @@
 - [x] post story to a specific channel
 - [x] AJAX scroll
 - [x] channel cover image
-- [ ] image size/crop
+- [x] image size/crop
 - [x] ability to delete a comment/story/channel
