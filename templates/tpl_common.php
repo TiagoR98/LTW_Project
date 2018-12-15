@@ -17,9 +17,9 @@
       <?php if(isset($_SESSION['username'])){ ?>
 
         <div id='options'>
-          <a href="../pages/profile.php"><?php echo($_SESSION['username']) ?></a>
-          <a href="../pages/profile.php">Profile info</a>
-          <a href="../actions/action_logout.php">Logout</a>
+          <a href="../pages/profile.php"><i class="fas fa-user"></i> <?php echo($_SESSION['username']) ?></a>
+          <a href="../pages/profile.php"><i class="fas fa-align-justify"></i> Profile info</a>
+          <a href="../actions/action_logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
       <?php } ?>
       <h1><a href="mainpage.php"><i class="fas fa-dice-d20"></i> channelOmania</a></h1>
@@ -28,11 +28,18 @@
 
     <?php if(isset($_SESSION['username'])){ ?>
     <div id="list_channels">
-      <p><a href = "../pages/new_channel.php" >Create a channel</a></p>
-      <?php $channels = listChannel(); ?>
+      <p><a href = "../pages/new_channel.php" ><i class="fas fa-pencil-alt"></i> Create a channel</a></p>
+      <?php $channels = listChannel('mActive'); ?>
       <ul>
-      <?php foreach($channels as $channel_list) { ?>
-        <li><a href = "../pages/channel.php?channelId=<?php echo($channel_list['ID']); ?>" ><?php echo($channel_list['name']); ?></a></li>
+      <?php if(count($channels) > 5) { ?>
+        <?php for ($i=0; $i < 5; $i++) { ?>
+          <li><a href = "../pages/channel.php?channelId=<?php echo($channels[$i]['ID']); ?>" ><?php echo($channels[$i]['name']); ?></a></li>
+        <?php } ?>
+          <li id="moreChannels"><a href = "../pages/all_channels.php" >More Channels</a></li>
+      <?php } else { ?>
+        <?php foreach($channels as $channel_list){ ?>
+          <li><a href = "../pages/channel.php?channelId=<?php echo($channel_list['ID']); ?>" ><?php echo($channel_list['name']); ?></a></li>
+        <?php } ?>
       <?php } ?>
       </ul>
     </div>

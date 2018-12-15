@@ -18,7 +18,7 @@
 <?php } ?>
 
 <?php function draw_new_story() { ?>
-  <?php $channels = listChannel(); ?>
+  <?php $channels = listChannel('alphabetical'); ?>
   <section id="new_story">
     <h2>Write your story</h2>
     <form action="../actions/action_new_story.php" method="post" enctype="multipart/form-data">

@@ -138,9 +138,24 @@ function deleteComment($commentId){
   $stmt->execute(array($commentId));
 }
 
-function listChannel() {
+function listChannel($sort='') {
+  switch($sort){
+    case 'mActive':
+      $order = 'n_stories DESC';
+      break;
+    case 'lActive':
+      $order = 'n_stories ASC';
+      break;
+    case 'alphabetical':
+      $order = 'name ASC';
+      break;
+    default:
+      $order = 'name ASC';
+      break;
+  }
+
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM story WHERE story.channel == channel.ID) AS n_stories FROM channel ORDER BY n_stories DESC');
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM story WHERE story.channel == channel.ID) AS n_stories FROM channel INNER JOIN user ON author=user.ID ORDER BY '.$order);
   $stmt->execute();
   return $stmt->fetchAll();
 }

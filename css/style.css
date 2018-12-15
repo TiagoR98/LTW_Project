@@ -112,6 +112,14 @@ article footer, #story_preview ul {
   border-top: 1px solid #800000;
 }
 
+#moreChannels{
+  border-left: 1px solid #800000;
+}
+
+#channelsList{
+  min-height: 100vh;
+}
+
 #messages .error {
   background-color: red;
   color: white;
