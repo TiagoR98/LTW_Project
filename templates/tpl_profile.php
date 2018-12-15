@@ -25,11 +25,13 @@
         <?php } ?></h3><br>
 
       <?php if($userInfo['username'] == $_SESSION['username']) { ?>
-      <h2>Upload Profile Picture: </h2>
-        <h3>
-            <input type="file" name="profilePic" accept="image/*">
-            <input type="submit">
-        </h3>
+        <div id="uploadPic">
+          <h2>Upload Profile Picture: </h2>
+          <h3>
+              <input type="file" name="profilePic" accept="image/*">
+              <input type="submit">
+          </h3>
+      </div>
       <?php } ?>
 
     </div>
@@ -44,7 +46,10 @@
 <?php function draw_user_stories($username, $stories) { ?>
   <section id="myStories" data-id="<?php echo $stories[0]['author'] ?>">
       <?php if($username == $_SESSION['username']) { ?>
-        <h1>My Stories</h1>
+        <ul id="myAddStory">
+          <li><h1>My Stories</h1></li>
+          <li><p id="addStory"><a href = "../pages/new_story.php" >Add a story</a></p></li>
+        </ul>
       <?php } else { ?>
         <h1><?php echo $username; ?>'s Stories</h1>
       <?php } ?>

@@ -1,6 +1,6 @@
 <?php function draw_login(){
   ?>
-
+  <div id="login_div">
   <section id="login">
     <h1>Login</h1>
     <form action="../actions/action_login.php" method="post">
@@ -10,6 +10,7 @@
     </form>
     <p>Don't have an account? <a href="register.php">Register Now</a></p>
   </section>
+</div>
 
 <?php } ?>
 

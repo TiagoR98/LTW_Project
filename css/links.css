@@ -1,0 +1,32 @@
+#header a{
+  color: white;
+  font-family: Helvetica;
+}
+
+#header div a{
+  list-style-type: none;
+  padding-left: 1em;
+}
+
+a:link, a:visited{
+  color: black;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #800000;
+}
+
+#list_channels li a, #list_channels p a{
+  padding: 0.5em;
+  display: block;
+}
+
+#list_channels li a:hover, #list_channels p a:hover{
+  color: white;
+  background-color: #800000;
+}
+
+article header a, #story_preview h3 a{
+  font-weight: bold;
+}

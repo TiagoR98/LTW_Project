@@ -6,12 +6,14 @@
     <title><?php if($tabText != ""){echo($tabText." - ");}  ?>channelOmania</title>
     <meta charset="UTF-8">
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/input.css" rel="stylesheet">
+    <link href="../css/links.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="shortcut icon" href="../files/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="../files/favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <header class="header">
+    <header id="header">
       <?php if(isset($_SESSION['username'])){ ?>
 
         <div id='options'>
@@ -19,11 +21,22 @@
           <a href="../pages/profile.php">Profile info</a>
           <a href="../actions/action_logout.php">Logout</a>
         </div>
-        <!--h2>Bem-Vindo <?php echo($_SESSION['username']) ?> </h2-->
       <?php } ?>
       <h1><a href="mainpage.php"><i class="fas fa-dice-d20"></i> channelOmania</a></h1>
 
     </header>
+
+    <?php if(isset($_SESSION['username'])){ ?>
+    <div id="list_channels">
+      <p><a href = "../pages/new_channel.php" >Create a channel</a></p>
+      <?php $channels = listChannel(); ?>
+      <ul>
+      <?php foreach($channels as $channel_list) { ?>
+        <li><a href = "../pages/channel.php?channelId=<?php echo($channel_list['ID']); ?>" ><?php echo($channel_list['name']); ?></a></li>
+      <?php } ?>
+      </ul>
+    </div>
+    <?php } ?>
 
     <?php if (isset($_SESSION['messages'])) {?>
       <section id="messages">
@@ -38,7 +51,7 @@
 <?php function draw_footer(){
   ?>
 
-  <footer>
+  <footer class="footer">
     <p>	&#9400;2018 - Tiago e Pati Studio (Todos os direitos Reservados) ,</p>
   </footer>
 </body>
