@@ -17,15 +17,15 @@
   <script src="../js/downUpvote.js"></script>
 <?php } ?>
 
-<?php function draw_new_story() { ?>
+<?php function draw_new_story($channelID) { ?>
   <?php $channels = listChannel('alphabetical'); ?>
   <section id="new_story">
     <h2>Write your story</h2>
     <form action="../actions/action_new_story.php" method="post" enctype="multipart/form-data">
       <p>Channel:
       <select name="channel" id='channelSelector'>
-        <?php foreach($channels as $channel_list) { ?>
-          <option value="<?php echo($channel_list['ID']); ?>"><?php echo($channel_list['name']); ?></option>
+        <?php print_r($channels); foreach($channels as $channel_list) { ?>
+          <option value="<?php echo($channel_list['channelId']); ?>"<?php if($channel_list['channelId'] == $channelID){echo("selected");} ?>><?php echo($channel_list['name']); ?></option>
         <?php } ?>
       </select></p>
       <input id="title" type="text" name="title" required placeholder="Title">

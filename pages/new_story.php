@@ -7,10 +7,10 @@
     if (!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
 
+    $story = (!isset($_GET['storyID']))?0:$_GET['storyId'];
 
   draw_header("Write your story");
-
-  draw_new_story();
+  draw_new_story($_GET['channelId']);
 
   draw_footer();
 ?>
