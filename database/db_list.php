@@ -155,7 +155,7 @@ function listChannel($sort='') {
   }
 
   $db = Database::instance()->db();
-  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM story WHERE story.channel == channel.ID) AS n_stories FROM channel INNER JOIN user ON author=user.ID ORDER BY '.$order);
+  $stmt = $db->prepare('SELECT *,(SELECT COUNT(*) FROM story WHERE story.channel == channel.ID) AS n_stories,channel.ID as channelId FROM channel INNER JOIN user ON author=user.ID ORDER BY '.$order);
   $stmt->execute();
   return $stmt->fetchAll();
 }

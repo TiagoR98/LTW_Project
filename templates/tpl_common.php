@@ -33,12 +33,12 @@
       <ul>
       <?php if(count($channels) > 5) { ?>
         <?php for ($i=0; $i < 5; $i++) { ?>
-          <li><a href = "../pages/channel.php?channelId=<?php echo($channels[$i]['ID']); ?>" ><?php echo($channels[$i]['name']); ?></a></li>
+          <li><a href = "../pages/channel.php?channelId=<?php echo($channels[$i]['channelId']); ?>" ><?php echo($channels[$i]['name']); ?></a></li>
         <?php } ?>
           <li id="moreChannels"><a href = "../pages/all_channels.php" >More Channels</a></li>
       <?php } else { ?>
         <?php foreach($channels as $channel_list){ ?>
-          <li><a href = "../pages/channel.php?channelId=<?php echo($channel_list['ID']); ?>" ><?php echo($channel_list['name']); ?></a></li>
+          <li><a href = "../pages/channel.php?channelId=<?php echo($channel_list['channelId']); ?>" ><?php echo($channel_list['name']); ?></a></li>
         <?php } ?>
       <?php } ?>
       </ul>
@@ -52,6 +52,9 @@
         <?php } ?>
       </section>
     <?php unset($_SESSION['messages']); } ?>
+
+    <section id="separator">
+    </section>
 
 <?php } ?>
 
