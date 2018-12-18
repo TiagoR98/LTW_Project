@@ -38,6 +38,7 @@
   </section>
 
   <?php if($userInfo['username'] == $_SESSION['username']) { ?>
+    <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
     </form>
   <?php } ?>
 

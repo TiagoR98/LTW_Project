@@ -2,6 +2,7 @@
 include_once('../includes/session.php');
 include_once('../database/db_list.php');
 include_once('../actions/findexts.php');
+include_once('../database/db_user.php');
 
 // Verify if user is logged in
   if (!isset($_SESSION['username']))
@@ -10,6 +11,13 @@ include_once('../actions/findexts.php');
 
 $userInfo = listProfile($_SESSION['username']);
 
+
+if($_POST['csrf'] !== $_SESSION['csrf']){
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Invalid Request');
+  die();
+  header('Location: ../pages/channel.php?profile.php?userId='.getIdFromUsername($_SESSION['username']));
+  die();
+}
 
 if(($_FILES['profilePic']['error']==0)){
 

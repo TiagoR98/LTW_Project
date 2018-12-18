@@ -33,6 +33,7 @@
 
   <?php if($channels[$_GET['channelId']-1]['author'] == getIdFromUsername($_SESSION['username'])) { ?>
  <input id="browser-width" type="hidden" name="browser-width" value="">
+  <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
   </form>
   <script>
   document.getElementById('browser-width').value = screen.width;
