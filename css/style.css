@@ -257,6 +257,7 @@ body,html{
   width: 80%;
   margin: auto;
   border-radius: 1em;
+  margin-top: 20px;
 }
 
 #profile #profile_info {
@@ -266,18 +267,28 @@ body,html{
   border-radius: 1em;
   background-color: white;
   font-size: 75%;
+  padding-left: 15px;
+  vertical-align: middle;
 }
 
 #uploadPic{
-  display: flex;
+
 }
 
 #profile #profile_info h2 {
   display: inline-flex;
+  white-space: pre-wrap;
 }
 
 #profile #profile_info h3 {
   display: inline;
+  font-weight:100;
+  padding-right: 20px;
+
+}
+
+#profile #profile_info h3 input {
+  margin-left: 10px;
 }
 
 #profile #profile_info form {
@@ -293,11 +304,44 @@ body,html{
 
 #myStories {
   display: block;
+  width: 80%;
+  margin: auto;
 }
 
 #myStories h1 {
   margin: auto;
 }
+
+#myStories #order {
+  float: right;
+  margin: 0;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#myStories #storyList{
+  width: 100%;
+  margin-top: 50px;
+}
+
+#myStories #storyList #story_preview{
+  width: 100%;
+}
+
+#myStories #btnLoadStories{
+   margin: 20px 0px;
+ }
+
+
+#myStories #myAddStory {
+  margin: 30px 0px 20px 0px;
+}
+
+#myStories h1 {
+  margin: 19px 0px 30px 0px;
+}
+
+
 
 #myAddStory h1, #myAddStory li {
   margin-bottom: auto;
