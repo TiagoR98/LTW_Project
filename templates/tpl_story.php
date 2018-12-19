@@ -32,6 +32,7 @@
       <textarea id="story_input" name="story_input" cols="40" rows="5" required placeholder="Type your story here"></textarea>
       <label>Add an image: <input type="file" name="storyImage" accept="image/*"></label>
       <input type="submit" value="Post">
+      <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
     </form>
   </section>
 <?php } ?>
