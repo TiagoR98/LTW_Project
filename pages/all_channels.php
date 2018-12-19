@@ -6,13 +6,13 @@
   include_once('../templates/tpl_all_channels.php');
 
   if (isset($_SESSION['username'])){
-    draw_header($_SESSION['username']."'s Profile");
+    draw_header("All Channels");
   }else {
     header('Location: login.php');
     die();
   }
 
-  $channels = listChannel('alphabetical');
+  $channels = listChannel();
   draw_channel_list($channels);
 
   draw_footer();

@@ -3,7 +3,7 @@
 
 <?php function draw_channel($storiesByChannel,$currentChannel) { ?>
 
-  <?php $channels = listChannel(); ?>
+  <?php $channels = listChannel('alphabetical'); ?>
 
   <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
   <script src="../js/editChannel.js"></script>
