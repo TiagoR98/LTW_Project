@@ -18,7 +18,7 @@ a:hover{
 }
 
 #list_channels li a, #list_channels p a{
-  padding: 0.5em;
+  padding: 0.5em 0.5em;
   display: block;
 }
 

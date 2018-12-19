@@ -25,6 +25,7 @@ li {
 #list_channels{
   background-color: white;
   position: relative;
+  padding: 0px 15px;
 }
 
 #list_channels p{
@@ -46,7 +47,7 @@ li {
 
 #header{
   background-color: #800000;
-  padding: 0.2em;
+  padding: 0.2em 15px;
   position: relative;
 }
 
@@ -99,7 +100,7 @@ h1{
 
 article, #story_preview {
   background-color: white;
-  width: 60%;
+  width: 80%;
   margin: auto;
   border-radius: 1em;
 }
@@ -234,7 +235,7 @@ body,html{
 }
 
 #new_story, #new_channel {
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 
@@ -247,7 +248,7 @@ body,html{
 
 #btnLoadComments, #btnLoadStories {
   margin-top: 1em;
-  margin-left: 20%;
+  margin-left: 10%;
   border-radius: 0.5em;
 }
 
@@ -313,9 +314,14 @@ body,html{
 footer{
   clear: left;
   bottom: auto;
-  padding-top: 50px;
+  padding-top: 30px;
+  padding: 20px 15px;
 }
 
 #register #confPasswordError{
   color:red;
+}
+
+#order_stories {
+  margin: 10px 10% 50px;
 }
