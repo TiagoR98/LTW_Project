@@ -62,6 +62,7 @@
       <label>Cover image: <input type="file" name="coverImage" accept="image/*"></label>
       <input id="browser-width" type="hidden" name="browser-width" value="">
       <input type="submit" value="Create">
+      <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
     </form>
   </section>
   <script>

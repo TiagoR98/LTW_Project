@@ -29,6 +29,13 @@ $author = getIdFromUsername($_SESSION['username']);
 $coverImage = cropCoverImage();
 
 
+//csrf
+if ($_SESSION['csrf'] !== $_POST['csrf']) {
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Non-Legitimate Request');
+  header('Location: ../pages/mainpage.php');
+  die();
+}
+
 try {
   addChannel($name,$coverImage,$author);
   $_SESSION['messages'][] = array('type' => 'success', 'content' => 'New channel created Successfully');
