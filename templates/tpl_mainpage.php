@@ -5,7 +5,7 @@
   <div id="order_stories">
     <ul>
       <li><h2>All Stories</h2></li>
-      <li><p id="addStory"><a href = "../pages/new_story.php" >Add a story</a></p></li>
+      <li><p id="addStory"><a href = "../pages/new_story.php" ><i class="fas fa-plus"></i> Add a story</a></p></li>
     </ul>
 
   <?php draw_story_list($storyInfo); ?>

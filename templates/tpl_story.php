@@ -22,7 +22,7 @@
   <section id="new_story">
     <h2>Write your story</h2>
     <form action="../actions/action_new_story.php" method="post" enctype="multipart/form-data">
-      <p>Channel:
+      <p><i class="fas fa-book"></i> Channel:
       <select name="channel" id='channelSelector'>
         <?php print_r($channels); foreach($channels as $channel_list) { ?>
           <option value="<?php echo($channel_list['channelId']); ?>"<?php if($channel_list['channelId'] == $channelID){echo("selected");} ?>><?php echo($channel_list['name']); ?></option>
@@ -30,7 +30,7 @@
       </select></p>
       <input id="title" type="text" name="title" required placeholder="Title">
       <textarea id="story_input" name="story_input" cols="40" rows="5" required placeholder="Type your story here"></textarea>
-      <label>Add an image: <input type="file" name="storyImage" accept="image/*"></label>
+      <label><i class="fas fa-image"></i> Add an image: <input type="file" name="storyImage" accept="image/*"></label>
       <input type="submit" value="Post">
       <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
     </form>
