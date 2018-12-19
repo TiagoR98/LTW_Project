@@ -69,8 +69,15 @@ li {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-#channel_div{
+#channelStories{
   margin-left: 1em;
+}
+
+#channel_div{
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  margin-top: 1.5em;
 }
 
 #header h1{
@@ -162,6 +169,10 @@ body,html{
   min-height: 75vh;
 }
 
+#new_channel{
+  min-height: 48vh;
+}
+
 #login, #register {
   border-radius: 1em;
   background-color: white;
@@ -209,16 +220,10 @@ body,html{
   color: red;
 }
 
-#login h1, #register h1, #recover_password h1{
+#login h1, #register h1{
   text-align: center;
   font-size: 2.5em;
   color: #800000;
-}
-
-#title{
-  width: 100%;
-  border-radius: 0.5em;
-  border-style:
 }
 
 #new_comment {
@@ -228,9 +233,15 @@ body,html{
   margin-right: auto;
 }
 
-#new_story {
+#new_story, #new_channel {
   width: 60%;
   margin: auto;
+}
+
+#new_channel {
+  width: 30%;
+  margin: auto;
+  margin-top: 10%;
 }
 
 

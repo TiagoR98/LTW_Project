@@ -11,6 +11,16 @@ input {
   width: auto;
 }
 
+#ch_name{
+  width: 80%;
+  border-radius: 0.5em;
+}
+
+#title{
+  width: 100%;
+  border-radius: 0.5em;
+}
+
 #story_input{
   border-radius: 1em;
   width: 100%;

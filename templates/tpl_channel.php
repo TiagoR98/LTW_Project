@@ -10,17 +10,9 @@
   <form action="../actions/action_edit_channel.php?channelId=<?php echo($currentChannel['ID']); ?>" method="post" enctype="multipart/form-data">
   <?php } ?>
 
-  <div id="cover"><img id="cover_image" src="../files/croppedCover/<?php if($currentChannel['coverImage']!="") { echo($currentChannel['coverImage']); } else {?>default.png<?php } ?>"
-    alt="<?php echo($currentChannel['name']); ?>'s cover image"></div>
-  <h1 id="channelName"><?php echo($currentChannel['name']); ?>
-
-  <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
-  <button text='Edit' onclick="edit('name')">Edit</button>
-  <?php } ?></h1><br>
-
   <div id="channel_div">
   <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
-    <a href="../actions/action_delete_channel.php?channelId=<?php echo($currentChannel['ID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"> Delete Channel</a>
+    <a href="../actions/action_delete_channel.php?channelId=<?php echo($currentChannel['ID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"><i class="fas fa-trash-alt"></i> Delete Channel</a>
   <?php } ?>
 
   <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
@@ -30,6 +22,17 @@
         <input type="submit">
     </h3>
   <?php } ?>
+</div>
+
+  <div id="cover"><img id="cover_image" src="../files/croppedCover/<?php if($currentChannel['coverImage']!="") { echo($currentChannel['coverImage']); } else {?>default.png<?php } ?>"
+    alt="<?php echo($currentChannel['name']); ?>'s cover image"></div>
+  <h1 id="channelName"><?php echo($currentChannel['name']); ?>
+
+  <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
+  <button text='Edit' onclick="edit('name')">Edit</button>
+  <?php } ?></h1><br>
+
+
 
 
   <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
@@ -47,7 +50,6 @@
 
     <?php draw_story_list($storiesByChannel); ?>
   </section>
-</div>
 
 
 <?php } ?>
@@ -56,7 +58,7 @@
   <section id="new_channel">
     <h2>Create your channel</h2>
     <form action="../actions/action_new_channel.php" method="post" enctype="multipart/form-data">
-      <input type="text" name="name" required placeholder="Name">
+      <input id="ch_name" type="text" name="name" required placeholder="Name">
       <label>Cover image: <input type="file" name="coverImage" accept="image/*"></label>
       <input id="browser-width" type="hidden" name="browser-width" value="">
       <input type="submit" value="Create">
