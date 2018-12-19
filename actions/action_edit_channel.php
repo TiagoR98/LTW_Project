@@ -19,7 +19,8 @@ if(isset($_GET['channelId'])){
   die();
 }
 
-if(getIdFromUsername($_SESSION['username']) != $currentChannel['author']){
+
+if(getIdFromUsername($_SESSION['username']) != $currentChannel['author'] || ($_POST['csrf'] !== $_SESSION['csrf'])){
   $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Not the author of the channel');
   header('Location: ../pages/channel.php?channelId='.$_GET['channelId']);
   die();
