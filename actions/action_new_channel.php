@@ -41,7 +41,7 @@ try {
   $_SESSION['messages'][] = array('type' => 'success', 'content' => 'New channel created Successfully');
   header('Location: ../pages/mainpage.php');
 } catch (PDOException $e) {
-  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error in creating channel!'.$e);
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error in creating channel!');
   header('Location: ../pages/new_channel.php');
   die();
 }

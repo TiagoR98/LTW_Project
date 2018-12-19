@@ -59,7 +59,7 @@ try {
   $_SESSION['messages'][] = array('type' => 'success', 'content' => 'New account created Successfully');
   header('Location: ../pages/profile.php');
 } catch (PDOException $e) {
-  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error in creating user!'.$e);
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error in creating user!');
   header('Location: ../pages/login.php');
   die();
 }
