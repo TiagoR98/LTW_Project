@@ -18,6 +18,7 @@
   ?>
   <script src="../js/confPassword.js"></script>
 
+  <div id="register_div">
   <section id="register">
     <h1>Register</h1>
     <form action="../actions/action_register.php" method="post" id="registerForm">
@@ -30,5 +31,6 @@
     </form>
     <p>Already have an account? <a href="login.php">Login</a></p>
   </section>
+</div>
 
 <?php }  ?>

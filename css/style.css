@@ -24,10 +24,7 @@ li {
 
 #list_channels{
   background-color: white;
-  position: fixed;
-  margin-top: 55px;
-  width: 100%;
-  z-index: 1;
+  position: relative;
 }
 
 #list_channels p{
@@ -50,14 +47,7 @@ li {
 #header{
   background-color: #800000;
   padding: 0.2em;
-  width: 100%;
-  position: fixed;
-  display: block;
-  z-index: 1;
-}
-
-#separator {
-  padding-top: 90px;
+  position: relative;
 }
 
 /*#cover{
@@ -75,12 +65,20 @@ li {
   background-color: transparent;
   position: absolute;
   /*width: 250px;*/
-  margin-top: 3em;
+  margin-top: 3.5em;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
+#channel_div{
+  margin-left: 1em;
+}
 
 #header h1{
   margin: 0.2em;
+}
+
+h1{
+  margin-left: 0.5em;
 }
 
 #options{
@@ -126,9 +124,9 @@ article footer, #story_preview ul {
   border-left: 1px solid #800000;
 }
 
-#channelsList{
+/*#channelsList{
   min-height: 100vh;
-}
+}*/
 
 #messages .error {
   background-color: red;
@@ -141,11 +139,27 @@ article footer, #story_preview ul {
 }
 
 body,html{
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
-#login_div{
-  min-height: 100vh;
+#channelsList ul{
+
+  margin-top: 50px;
+
+}
+
+#channelsList li{
+    background-color: white;
+    margin: 1em;
+    border-radius: 1em;
+}
+
+#channelsList li a:first-child{
+  font-weight: bold;
+}
+
+#login_div, #register_div, #channelsList{
+  min-height: 75vh;
 }
 
 #login, #register {

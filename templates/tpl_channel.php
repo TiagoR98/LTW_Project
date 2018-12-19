@@ -18,6 +18,7 @@
   <button text='Edit' onclick="edit('name')">Edit</button>
   <?php } ?></h1><br>
 
+  <div id="channel_div">
   <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
     <a href="../actions/action_delete_channel.php?channelId=<?php echo($currentChannel['ID']); ?>&csrf=<?php echo($_SESSION['csrf']); ?>"> Delete Channel</a>
   <?php } ?>
@@ -31,7 +32,7 @@
   <?php } ?>
 
 
-  <?php if($channels[$_GET['channelId']-1]['author'] == getIdFromUsername($_SESSION['username'])) { ?>
+  <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
  <input id="browser-width" type="hidden" name="browser-width" value="">
   </form>
   <script>
@@ -45,6 +46,7 @@
 
     <?php draw_story_list($storiesByChannel); ?>
   </section>
+</div>
 
 
 <?php } ?>
