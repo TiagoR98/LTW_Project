@@ -79,12 +79,20 @@ if(isset($_FILES['storyImage']['name'])){
   $storyImage = NULL;
 }
 
+
+//csrf
+if ($_SESSION['csrf'] !== $_POST['csrf']) {
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Non-Legitimate Request');
+  header('Location: ../pages/mainpage.php');
+  die();
+}
+
 try {
   addStory($title,$content,$author,$date,$channel,$storyImage);
   $_SESSION['messages'][] = array('type' => 'success', 'content' => 'New story posted Successfully');
   header('Location: ../pages/channel.php?channelId='.$channel);
 } catch (PDOException $e) {
-  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error in posting story!'.$e);
+  $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error in posting story!');
   header('Location: ../pages/new_story.php');
   die();
 }
