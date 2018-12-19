@@ -150,7 +150,7 @@ function listChannel($sort='') {
       $order = 'name ASC';
       break;
     default:
-      $order = 'name ASC';
+      $order = 'n_stories DESC';
       break;
   }
 
