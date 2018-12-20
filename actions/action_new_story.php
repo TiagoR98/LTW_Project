@@ -27,17 +27,18 @@ if(isset($_FILES['storyImage']['name'])){
     $extension =  findexts($_FILES["storyImage"]["name"]);
 
     $storyImage=uniqid().$extension;
-    $target_dir = "../files/storyImages/";
+    $target_dir = "../files/smallStoryImages/";
     $target_file = $target_dir .  $storyImage;
+    $original_file = "../files/storyImages/" . $storyImage;
 
     //verificar se e uma imagem
     $check = getimagesize($_FILES["storyImage"]["tmp_name"]);
 
-    move_uploaded_file($_FILES["storyImage"]["tmp_name"], $target_file);
-    chmod($target_file, 0666);
+    move_uploaded_file($_FILES["storyImage"]["tmp_name"], $original_file);
+    chmod($original_file, 0666);
 
     // Crete an image representation of the original image
-    $original = imagecreatefromstring(file_get_contents($target_file));
+    $original = imagecreatefromstring(file_get_contents($original_file));
 
     $width = imagesx($original);     // width of the original image
     $height = imagesy($original);    // height of the original image
