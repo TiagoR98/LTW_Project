@@ -26,7 +26,7 @@
       <input type="email" name="email" placeholder="E-mail" required>
       <input type="password" id="password" name="password" placeholder="Password" required>
       <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm Password" required>
-      <input type="date" name="birth" placeholder="Birth Date" value="<?php echo(date("Y-m-d H:i:s")); ?>" required>
+      <input type="text" onfocus="(this.type='date')" name="birth" placeholder="Birth Date" required>
       <input type="submit" id="submitRegister" value="Register">
     </form>
     <p>Already have an account? <a href="login.php">Login</a></p>
