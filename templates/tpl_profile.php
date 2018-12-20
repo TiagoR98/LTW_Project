@@ -24,6 +24,9 @@
           <button text='Edit' onclick="edit('birth')">Edit</button>
         <?php } ?></h3><br>
 
+      <h2><i class="fas fa-star"></i> Score: </h2>
+      <h3 id="score"><?php echo($userInfo['score']); ?></h3><br>
+
       <?php if($userInfo['username'] == $_SESSION['username']) { ?>
         <div id="uploadPic">
           <h2><i class="fas fa-image"></i>  Upload Profile Picture: </h2>
