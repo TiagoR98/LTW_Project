@@ -73,7 +73,7 @@ li {
 #channelAuthor {
   font-size: 0.5em;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 #channelStories{
@@ -324,7 +324,7 @@ body,html{
 
 #profile #profile_info h3 {
   display: inline;
-  font-weight:100;
+  font-weight:300;
   padding-right: 20px;
 
 }
