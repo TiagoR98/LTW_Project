@@ -197,7 +197,7 @@ body,html{
 }
 
 #login_div, #register_div, #channelsList{
-  min-height: 75vh;
+  min-height: 77.2vh;
 }
 
 #new_channel{

@@ -3,12 +3,26 @@ input {
   margin: 1em 0;
 }
 
-#login input, #register input {
-  width: 100%;
+#login,#register {
+  width: auto;
 }
 
-#login input[type=submit]{
+#login input, #register input {
+  width: 100%;
+  border: 1.5px solid #800000;
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#login input[type=submit],#register input[type=submit],#register input[type=button]{
   width: auto;
+  border: none;
+}
+
+
+#login h1,#register h1 {
+  margin: 20px 0px;
 }
 
 #ch_name{
