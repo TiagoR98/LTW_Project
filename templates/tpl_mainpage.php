@@ -15,7 +15,7 @@
 <?php function draw_story_list_item($story) { ?>
   <section id="story_preview">
     <h3><a href = "../pages/story.php?storyId=<?php echo($story['storyID']); ?>" ><?php echo($story['title']); ?></a></h3>
-    <p><?php echo(substr($story['content'],0,20)); ?>...</p>
+    <p><?php echo(substr($story['content'],0,140)); if(strlen($story['content']) > 140) echo("...");?></p>
     <?php draw_story_info($story); ?>
 
   </section>

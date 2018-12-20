@@ -71,14 +71,44 @@ li {
 }
 
 #channelStories{
-  margin-left: 1em;
+  width: 80%;
+  margin: auto;
 }
+
+#channelStories .header{
+  margin: 10px 0px 50px;
+}
+
+#channelStories .header li h2{
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#channelStories  #order {
+  float: right;
+    margin: 0;
+    position: absolute;
+    right: 10%;
+    margin-top: -30px;
+}
+
+#channelStories #storyList #story_preview{
+  width: 100%;
+}
+
+
+#channelStories  #btnLoadStories {
+  margin-left: 0px;
+}
+
+
 
 #channel_div{
   background-color: transparent;
   position: absolute;
-  right: 0;
+  right: 15px;
   margin-top: 1.5em;
+  text-shadow: -0.8px 0 white, 0 0.8px white, 0.8px 0 white, 0 -0.8px white;
 }
 
 #header h1{
@@ -339,7 +369,7 @@ body,html{
 }
 
 #myStories h1 {
-  margin: 19px 0px 30px 0px;
+  margin: 19px 0px 20px 0px;
 }
 
 

@@ -45,9 +45,16 @@
   <?php } ?>
 
   <section id="channelStories" data-id="<?php echo $_GET['channelId'] ?>">
-    <h2>All Stories</h2>
-    <p><a href = "../pages/new_story.php?channelId=<?php echo($_GET['channelId']); ?>" >Add a story</a></p>
-
+    <div class="header">
+      <ul>
+        <li>
+          <h2>All Stories</h2>
+        </li>
+        <li>
+          <p><a href = "../pages/new_story.php?channelId=<?php echo($_GET['channelId']); ?>" ><i class="fas fa-plus"></i> Add a story</a></p>
+        </li>
+      </ul>
+    </div>
     <?php draw_story_list($storiesByChannel); ?>
   </section>
 

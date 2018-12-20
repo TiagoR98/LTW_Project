@@ -24,7 +24,7 @@
     <form action="../actions/action_new_story.php" method="post" enctype="multipart/form-data">
       <p><i class="fas fa-book"></i> Channel:
       <select name="channel" id='channelSelector'>
-        <?php print_r($channels); foreach($channels as $channel_list) { ?>
+        <?php foreach($channels as $channel_list) { ?>
           <option value="<?php echo($channel_list['channelId']); ?>"<?php if($channel_list['channelId'] == $channelID){echo("selected");} ?>><?php echo($channel_list['name']); ?></option>
         <?php } ?>
       </select></p>
