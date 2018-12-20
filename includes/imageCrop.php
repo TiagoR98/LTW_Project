@@ -38,13 +38,13 @@ function cropCoverImage(){
     $white = imagecolorallocate($new, 255, 255, 255);
     imagefill($new, 0, 0, $white);
 
-    imagecopyresized($new, $original, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+    imagecopyresampled($new, $original, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
     imagejpeg($new, $newFileName);
     move_uploaded_file($_FILES["coverImage"]["tmp_name"], $newFileName);
     chmod($newFileName, 0666);
 
     $final = imagecreatetruecolor($_POST['browser-width']-17, 200);
-    imagecopyresized($final, $new, 0, 0, 0, ($newheight>200)?($newheight-200)/2:0, $_POST['browser-width']-17, 200, $_POST['browser-width']-17, 200);
+    imagecopyresampled($final, $new, 0, 0, 0, ($newheight>200)?($newheight-200)/2:0, $_POST['browser-width']-17, 200, $_POST['browser-width']-17, 200);
     imagejpeg($final, $newFileName);
 
     try{

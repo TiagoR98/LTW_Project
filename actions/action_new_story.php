@@ -30,6 +30,7 @@ if(isset($_FILES['storyImage']['name'])){
     $target_dir = "../files/smallStoryImages/";
     $target_file = $target_dir .  $storyImage;
     $original_file = "../files/storyImages/" . $storyImage;
+    $thumbnail_file = "../files/thumbStoryImages/" . $storyImage;
 
     //verificar se e uma imagem
     $check = getimagesize($_FILES["storyImage"]["tmp_name"]);
@@ -59,16 +60,25 @@ if(isset($_FILES['storyImage']['name'])){
       }
     }
 
-    // Create and save a medium image
+    $thumbwidth = 100;
+    $thumbheight = $height * ( $thumbwidth / $width );
+
+    // Create and save a medium/thumb image
     $medium = imagecreatetruecolor($mediumwidth, $mediumheight);
+    $thumb = imagecreatetruecolor($thumbwidth, $thumbheight);
     $white = imagecolorallocate($medium, 255, 255, 255);
     imagefill($medium, 0, 0, $white);
-    imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
+    imagefill($thumb, 0, 0, $white);
+    imagecopyresampled($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
+    imagecopyresampled($thumb, $original, 0, 0, 0, 0, $thumbwidth, $thumbheight, $width, $height);
     imagejpeg($medium, $target_file);
+    imagejpeg($thumb, $thumbnail_file);
 
     try{
       move_uploaded_file($_FILES["storyImage"]["tmp_name"], $target_file);
+      move_uploaded_file($_FILES["storyImage"]["tmp_name"], $thumbnail_file);
       chmod($target_file, 0666); //permissao de escrita
+      chmod($thumbnail_file, 0666); //permissao de escrita
     }catch(Exception $e){
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Error uploading Image');
         header('Location:../pages/new_story.php');

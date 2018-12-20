@@ -19,7 +19,7 @@
     </header>
     <p><?php echo(substr($story['content'],0,140)); if(strlen($story['content']) > 140) echo("...");?></p>
     <?php if($story['image']!=NULL){ ?>
-    <p><a href="../files/storyImages/<?php echo($story['image'])?>" target="_blank"><i class="fas fa-image"></i></a></p>
+    <p><a href="../files/storyImages/<?php echo($story['image'])?>" target="_blank"><image class="storyThumbnail" src="../files/thumbStoryImages/<?php echo($story['image'])?>" /></a></p>
     <?php }?>
     <footer><?php draw_story_info($story); ?></footer>
   </article>

@@ -62,7 +62,7 @@ if(isset($_FILES['commentImage']['name'])){
     $medium = imagecreatetruecolor($mediumwidth, $mediumheight);
     $white = imagecolorallocate($medium, 255, 255, 255);
     imagefill($medium, 0, 0, $white);
-    imagecopyresized($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
+    imagecopyresampled($medium, $original, 0, 0, 0, 0, $mediumwidth, $mediumheight, $width, $height);
     imagejpeg($medium, $target_file);
 
     try{
