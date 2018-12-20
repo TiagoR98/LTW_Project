@@ -7,7 +7,7 @@
     if (!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
 
-    $channel = (!isset($_GET['channelID']))?0:$_GET['channelId'];
+    $channel = (!isset($_GET['channelId']))?0:$_GET['channelId'];
 
   draw_header("Write your story");
   draw_new_story($channel);
