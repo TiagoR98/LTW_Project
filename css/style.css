@@ -166,6 +166,10 @@ article footer, #story_preview ul {
   min-height: 100vh;
 }*/
 
+#messages .error,#messages .success{
+  padding-left: 22px;
+}
+
 #messages .error {
   background-color: red;
   color: white;
