@@ -7,7 +7,9 @@ input {
   width: auto;
 }
 
-#login input, #register input {
+#login input, #register input,
+#new_comment input,#new_story input,#new_channel input,
+#new_comment textarea,#new_story textarea {
   width: 100%;
   border: 1.5px solid #800000;
   border-radius: 4px;
@@ -15,7 +17,11 @@ input {
   box-sizing: border-box;
 }
 
-#login input[type=submit],#register input[type=submit],#register input[type=button]{
+#login input[type=submit],
+#register input[type=submit],#register input[type=button],
+#new_story input[type=file],#new_story input[type=submit],
+#new_channel input[type=file],#new_channel input[type=submit],
+#new_comment input[type=file],#new_comment input[type=submit]{
   width: auto;
   border: none;
 }
