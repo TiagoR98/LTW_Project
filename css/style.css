@@ -128,7 +128,7 @@ h1{
   margin-bottom: 0;
 }
 
-article, #story_preview {
+article {
   background-color: white;
   width: 80%;
   margin: auto;
@@ -139,7 +139,7 @@ article h1{
   margin: auto;
 }
 
-article header, #story_preview h3 {
+article header {
   margin-top: 1em;
   padding: 0.5em;
   border-bottom: 1px solid #800000;
@@ -153,7 +153,7 @@ article img{
   align-self: auto;
 }
 
-article footer, #story_preview ul {
+article footer {
   padding: 0;
   border-top: 1px solid #800000;
 }

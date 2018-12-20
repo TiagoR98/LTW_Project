@@ -24,8 +24,9 @@
   <?php } ?>
 </div>
 
-  <div id="cover"><img id="cover_image" src="../files/croppedCover/<?php if($currentChannel['coverImage']!="") { echo($currentChannel['coverImage']); } else {?>default.png<?php } ?>"
-    alt="<?php echo($currentChannel['name']); ?>'s cover image"></div>
+  <a href="../files/coverImages/<?php if($currentChannel['coverImage']!="") { echo($currentChannel['coverImage']); } else {?>default.png<?php } ?>" target="_blank">
+    <div id="cover"><img id="cover_image" src="../files/croppedCover/<?php if($currentChannel['coverImage']!="") { echo($currentChannel['coverImage']); } else {?>default.png<?php } ?>"
+    alt="<?php echo($currentChannel['name']); ?>'s cover image"></div></a>
   <h1 id="channelName"><?php echo($currentChannel['name']); ?>
 
   <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>

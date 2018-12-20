@@ -6,7 +6,8 @@
   <?php } ?>
 
   <section id="profile">
-    <img id="profile_pic" src="../files/croppedProfile/<?php if($userInfo['profilePic']!="") { echo($userInfo['profilePic']); } else {?>default.png<?php } ?>" alt="<?php echo($userInfo['username']); ?>'s profile picture">
+    <a href="../files/profilePics/<?php if($userInfo['profilePic']!="") { echo($userInfo['profilePic']); } else {?>default.png<?php } ?>" target="_blank">
+    <img id="profile_pic" src="../files/croppedProfile/<?php if($userInfo['profilePic']!="") { echo($userInfo['profilePic']); } else {?>default.png<?php } ?>" alt="<?php echo($userInfo['username']); ?>'s profile picture"></a>
 
     <div id="profile_info">
       <h2><i class="fas fa-user"></i>  Username: </h2>

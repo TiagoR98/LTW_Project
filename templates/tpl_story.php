@@ -9,7 +9,7 @@
       </header>
       <p><?php echo($story['content']); ?></p>
       <?php if($story['image']!=NULL){ ?>
-      <img id="story_image" src="../files/storyImages/<?php echo($story['image']); ?>" alt="<?php echo($story['title']); ?>'s image">
+      <a href="../files/storyImages/<?php echo($story['image'])?>" target="_blank"><img id="story_image" src="../files/smallStoryImages/<?php echo($story['image']); ?>" alt="<?php echo($story['title']); ?>'s image"></a>
       <?php }?>
       <footer><?php draw_story_info($story); ?></footer>
     </article>
@@ -80,7 +80,7 @@
       </header>
       <p><?php echo($comment['content']); ?></p>
       <?php if($comment['image']!=NULL){ ?>
-      <img id="comment_image" src="../files/commentImages/<?php echo($comment['image']); ?>" alt="<?php echo($comment['id']); ?>'s image">
+      <a href="../files/commentImages/<?php echo($comment['image'])?>" target="_blank"><img id="comment_image" src="../files/smallCommentImages/<?php echo($comment['image']); ?>" alt="<?php echo($comment['id']); ?>'s image"></a>
       <?php }?>
       <footer>
         <ul>
