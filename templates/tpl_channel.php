@@ -28,10 +28,13 @@
     <div id="cover"><img id="cover_image" src="../files/croppedCover/<?php if($currentChannel['coverImage']!="") { echo($currentChannel['coverImage']); } else {?>default.png<?php } ?>"
     alt="<?php echo($currentChannel['name']); ?>'s cover image"></div></a>
   <h1 id="channelName"><?php echo($currentChannel['name']); ?>
-
   <?php if($currentChannel['author'] == getIdFromUsername($_SESSION['username'])) { ?>
   <button text='Edit' onclick="edit('name')">Edit</button>
-  <?php } ?></h1><br>
+  <?php } ?>
+  <br>
+  <a id="channelAuthor" href="../pages/profile.php?userId=<?php echo($currentChannel['author']); ?>"><i class="fas fa-user"></i> <?php  echo(getUsernameFromId($currentChannel['author']));?></a>
+  </h1>
+
 
 
 

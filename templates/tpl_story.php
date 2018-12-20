@@ -41,7 +41,7 @@
   <section id="new_comment">
     <form action="../actions/action_add_comment.php?storyId=<?php echo($story['storyID']); ?>" method="post" enctype="multipart/form-data">
       <textarea id="content" name="content" cols="40" rows="5" required placeholder="Type your comment here"></textarea>
-      <label>Add an image: <input type="file" name="commentImage" accept="image/*"></label>
+      <label><i class="fas fa-image"></i> Add an image: <input type="file" name="commentImage" accept="image/*"></label>
       <input type="hidden" name="csrf" value="<?php echo($_SESSION['csrf']);?>">
       <input type="submit" value="Post">
     </form>
