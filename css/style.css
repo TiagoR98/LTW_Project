@@ -259,6 +259,7 @@ body,html{
   text-align: center;
   font-size: 2.5em;
   color: #800000;
+  margin-left: 0;
 }
 
 #new_comment {
