@@ -13,17 +13,16 @@
 <?php } ?>
 
 <?php function draw_story_list_item($story) { ?>
-    <article>
-      <header>
-        <h1><a href = "../pages/story.php?storyId=<?php echo($story['storyID']); ?>" ><?php echo($story['title']); ?></a></h1>
-      </header>
-      <p><?php echo(substr($story['content'],0,140)); if(strlen($story['content']) > 140) echo("...");?></p>
-      <?php if($story['image']!=NULL){ ?>
-      <p><a href="../files/storyImages/<?php echo($story['image'])?>" target="_blank"><i class="fas fa-image"></i></a></p>
-      <?php }?>
-      <footer><?php draw_story_info($story); ?></footer>
-    </article>
-  </section>
+  <article>
+    <header>
+      <h1><a href = "../pages/story.php?storyId=<?php echo($story['storyID']); ?>" ><?php echo($story['title']); ?></a></h1>
+    </header>
+    <p><?php echo(substr($story['content'],0,140)); if(strlen($story['content']) > 140) echo("...");?></p>
+    <?php if($story['image']!=NULL){ ?>
+    <p><a href="../files/storyImages/<?php echo($story['image'])?>" target="_blank"><i class="fas fa-image"></i></a></p>
+    <?php }?>
+    <footer><?php draw_story_info($story); ?></footer>
+  </article>
 <?php } ?>
 
 <?php function draw_story_info($story) { ?>

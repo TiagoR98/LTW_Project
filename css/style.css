@@ -1,6 +1,6 @@
 body {
   font-family: IBMPlexSans, Helvetica Neue, Segoe UI, Helvetica, Verdana, Arial, sans-serif;
-  background-color: #D5E2EB;
+  background-image: url("../files/background.png");
   margin: 0;
 }
 
@@ -98,7 +98,7 @@ li {
     margin-top: -30px;
 }
 
-#channelStories #storyList #story_preview{
+#channelStories #storyList article{
   width: 100%;
 }
 
@@ -151,7 +151,7 @@ article header {
   border-bottom: 1px solid #800000;
 }
 
-article p, #story_preview p,article img {
+article p, article p,article img {
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -164,7 +164,7 @@ article img{
 }
 
 article footer {
-  padding: 0;
+  padding: 0.4em;
   border-top: 1px solid #800000;
 }
 
@@ -367,12 +367,24 @@ body,html{
   margin-bottom: 20px;
 }
 
+#storyList article h1,
+#story article h1{
+  margin: auto;
+  padding: 0.4em;
+}
+
 #myStories #storyList{
   width: 100%;
   margin-top: 50px;
 }
 
-#myStories #storyList #story_preview{
+#channelStories #storyList article,
+#myStories #storyList article{
+  width: 100%;
+  margin-top: 10px;
+}
+
+#myStories #storyList article{
   width: 100%;
 }
 
