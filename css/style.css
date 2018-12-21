@@ -423,6 +423,20 @@ body,html{
   padding: 5px 15px;
   background-color: #800000;
   color: white;
+  white-space: pre-wrap;
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.footer .left{
+  flex: 75%;
+}
+
+.footer .right{
+    flex: 25%;
 }
 
 #register #confPasswordError{

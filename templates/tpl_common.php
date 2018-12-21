@@ -62,7 +62,12 @@
   ?>
 
   <footer class="footer">
-    <p>	&#9400;2018 - Tiago e Pati Studio (Todos os direitos Reservados) ,</p>
+    <p>	&#9400; channelOmania 2018</p>
+    <p> <i class="fas fa-user"></i> Tiago Ribeiro - <i class="fas fa-id-card"></i> up201605619</p>
+    <p> <i class="fas fa-user"></i> Patrícia Janeiro - <i class="fas fa-id-card"></i> up201605619</p>
+    <p> <i class="fas fa-university"></i> FEUP</p>
+    <p> <i class="fas fa-graduation-cap"></i> MIEIC</p>
+    <p> <i class="fas fa-code"></i> LTW Project <p>
   </footer>
 </body>
 </html>
