@@ -15,15 +15,35 @@ input {
   border-radius: 4px;
   padding: 10px;
   box-sizing: border-box;
+
 }
+
+#new_story input[type=file],
+#new_channel input[type=file],
+#new_comment input[type=file]{
+  width: auto;
+  border: none;
+}
+
 
 #login input[type=submit],
 #register input[type=submit],#register input[type=button],
-#new_story input[type=file],#new_story input[type=submit],
-#new_channel input[type=file],#new_channel input[type=submit],
-#new_comment input[type=file],#new_comment input[type=submit]{
+#new_story input[type=submit],
+#new_channel input[type=submit],
+#new_comment input[type=submit]{
   width: auto;
   border: none;
+  background-color: #800000;
+  color: white;
+}
+
+#login input[type=submit]:hover,
+#register input[type=submit]:hover,#register input[type=button]:hover,
+#new_story input[type=submit]:hover,
+#new_channel input[type=submit]:hover,
+#new_comment input[type=submit]:hover{
+  background-color: white;
+  color: #800000;
 }
 
 
